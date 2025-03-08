@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Logo from '../assets/img/google.png';
+import { useNavigate } from 'react-router-dom';
 
 const StartPage = () => {
     const [clickable, setClickable] = useState(false);
@@ -9,6 +10,8 @@ const StartPage = () => {
     const startMessage = "Start Investigation";
     const [index, setIndex] = useState(0);
     const [message, setMessage] = useState("");
+
+    const navigate = useNavigate();
 
     const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
         if (index < startMessage.length) {
@@ -32,7 +35,11 @@ const StartPage = () => {
         if (message !== startMessage) {
             return;
         }
-        setMessage("Case Opened");
+        else {
+            setMessage("Case Opened");
+            navigate('/first-puzzle');
+        }
+       
     };
 
     return (
