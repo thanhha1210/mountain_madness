@@ -21,7 +21,7 @@ const FirstPuzzle = () => {
 
   const handleClick = (a: number) => {
     if (a === 1) {
-      navigate('/');
+      navigate('/blog-puzzle');
     } else {
       navigate('/second-puzzle');
     }
