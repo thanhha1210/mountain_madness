@@ -1,3 +1,7 @@
+import './App.css'
+import Test from './components/Test'
+
+function App() {
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import StartPage from "./components/StartPage";
 import FirstPuzzle from "./components/puzzles/FirstPuzzle";
