@@ -1,0 +1,57 @@
+.laptop
+{
+width:1440px;
+height:670px;
+position: center;
+}
+.screen
+{
+width:1440px;
+height:670px;
+position:center;
+}
+.rectangle1
+{
+background-color:#3a3a3a;
+height:670px;
+width:1440px;
+border-radius:20px;
+position: center;
+}
+.rectangle2
+{
+background-color:#ffffff;
+height:611px;
+width:1392px;
+left:24px;
+top:46px;
+position:center;
+}
+.camera
+{
+width:13px;
+height:13px;
+left:713px;
+top:18px;
+position:center;
+}
+.ellipse1
+{
+background-color:#3d3d3d;
+height:13px;
+width:13px;
+top:385px;
+left:713px;
+border-radius:50%;
+position: center;
+}
+.ellipse2
+{
+background-color:#010101;
+height:9px;
+width:9px;
+top:387px;
+left:715px;
+border-radius:50%;
+position: center;
+}
