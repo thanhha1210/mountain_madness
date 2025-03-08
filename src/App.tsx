@@ -1,17 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import StartPage from './components/StartPage'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import StartPage from "./components/StartPage";
+import FirstPuzzle from "./components/puzzles/FirstPuzzle";
+import SecondPuzzle from "./components/puzzles/SecondPuzzle";
+import ThirdPuzzle from "./components/puzzles/ThirdPuzzle";
+import FourthPuzzle from "./components/puzzles/FourthPuzzle";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <StartPage />
-    </>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<StartPage />} />
+        <Route path="/first-puzzle" element={<FirstPuzzle/>}></Route>
+        <Route path="/second-puzzle" element={<SecondPuzzle/>}></Route>
+        <Route path="/third-puzzle" element={<ThirdPuzzle/>}></Route>
+        <Route path="/fourth-puzzle" element={<FourthPuzzle/>}></Route>
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
