@@ -1,75 +1,70 @@
 import React, { useState } from 'react';
 import Logo from '../../assets/img/google.png';
-import { useNavigate } from 'react-router-dom';
 
-const StartPage = ({ onNextPuzzle, onPrevPuzzle }: { onNextPuzzle: () => void, onPrevPuzzle: () => void }) => {
-    const [clickable, setClickable] = useState(false);
-    const [moves, setMoves] = useState(0);
-    const [position, setPosition] = useState({ top: "60%", left: "50%" });
-    
-    const startMessage = "Why can I see them?";
-    const [index, setIndex] = useState(0);
-    const [message, setMessage] = useState("");
+const StartPage = ({
+  onSetPuzzleStatus,
+}: {
+  onSetPuzzleStatus: (index: number, status: boolean) => void;
+}) => {
+  const [clickable, setClickable] = useState(false);
+  const [moves, setMoves] = useState(0);
+  const [position, setPosition] = useState({ top: '60%', left: '50%' });
 
-    const navigate = useNavigate();
+  const startMessage = 'Why can I see them?';
+  const [index, setIndex] = useState(0);
+  const [message, setMessage] = useState('');
 
-    const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
-        if (index < startMessage.length) {
-            setMessage((prev) => prev + startMessage[index]);
-            setIndex(index + 1);
-        }
-    };
+  const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
+    if (index < startMessage.length) {
+      setMessage((prev) => prev + startMessage[index]);
+      setIndex(index + 1);
+    }
+  };
 
-    const moveButton = () => {
-        if (moves < 6) {
-            const randomX = Math.random() * 70 + "%";
-            setPosition({ top: "60%", left: randomX });
-            setMoves(moves + 1);
-        } 
-        else {
-            setClickable(true);
-        }
-    };
+  const moveButton = () => {
+    if (moves < 6) {
+      const randomX = Math.random() * 70 + '%';
+      setPosition({ top: '60%', left: randomX });
+      setMoves(moves + 1);
+    } else {
+      setClickable(true);
+    }
+  };
 
-    const handleClick = () => {
-        if (message !== startMessage) {
-            return;
-        }
-        else {
-            setMessage("Case Opened");
-            onNextPuzzle();
-        }
-       
-    };
+  const handleClick = () => {
+    if (message !== startMessage) return;
+    setMessage('Case Opened');
 
-    return (
-        <div className="w-full h-screen flex flex-col items-center justify-center text-black relative">
-            <div className="flex flex-col items-center mb-6 z-10 w-[60%]">
-                <img src={Logo} alt="Logo" className="w-32 mb-4" />
-                <input 
-                    type="text" 
-                    className="px-4 py-2 border border-black rounded-md text-black w-full"
-                    onInput={e => handleInput(e)}
-                    placeholder="Type to reveal message..."
-                    value={message}
-                />
-            </div>
-            
-            <button
-                className='text-sm border border-black px-8 py-3 rounded-lg absolute transition-all font-mono shadow-lg tracking-widest z-0'
-                style={
-                    { 
-                        top: position.top, 
-                        left: position.left 
-                    }
-                }
-                onMouseEnter={!clickable ? moveButton : undefined}
-                onClick={handleClick}
-            >
-                Search
-            </button>
-        </div>
-    );
+    // Mark puzzle as solved and go back to menu
+    onSetPuzzleStatus(1, true);
+  };
+
+  return (
+    <div className="w-full h-screen flex flex-col items-center justify-center text-black relative">
+      <div className="flex flex-col items-center mb-6 z-10 w-[60%]">
+        <img src={Logo} alt="Logo" className="w-32 mb-4" />
+        <input
+          type="text"
+          className="px-4 py-2 border border-black rounded-md text-black w-full"
+          onInput={handleInput}
+          placeholder="Type to reveal message..."
+          value={message}
+        />
+      </div>
+
+      <button
+        className="text-sm border border-black px-8 py-3 rounded-lg absolute transition-all font-mono shadow-lg tracking-widest z-0"
+        style={{
+          top: position.top,
+          left: position.left,
+        }}
+        onMouseEnter={!clickable ? moveButton : undefined}
+        onClick={handleClick}
+      >
+        Search
+      </button>
+    </div>
+  );
 };
 
 export default StartPage;

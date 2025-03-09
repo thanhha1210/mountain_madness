@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Logo from '../../assets/img/google.png';
 
-const FourthPuzzle = ({ onNextPuzzle, onPrevPuzzle }: { onNextPuzzle: () => void, onPrevPuzzle: () => void })  => {
+const FourthPuzzle =  ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () => void, onSetPuzzleStatus: (index: number, status: boolean) => void }) => {
   const [userAnswer, setUserAnswer] = useState('');
   const [error, setError] = useState('Decrypt the message to proceed.');
 
@@ -11,20 +11,20 @@ const FourthPuzzle = ({ onNextPuzzle, onPrevPuzzle }: { onNextPuzzle: () => void
   const handleSubmit = () => {
     if (userAnswer.toUpperCase() === correctAnswer.toUpperCase()) {
       setError('Correct! You decrypted the message.');
-      setTimeout(() => {
-        onNextPuzzle(); // Proceed to next puzzle
-      }, 1000);
-    } else {
+      onSetPuzzleStatus(5,true);
+      setTimeout(onReturnToMenu, 1000); 
+    } 
+    else {
       setError('Incorrect. Hint: shift by 1!');
     }
   };
 
   return (
-    <div className="w-full h-screen flex justify-center items-center p-6">
+    <div className="w-full flex justify-center items-center p-6 border border-1 border-black">
       <div className="flex flex-col items-center z-10 w-full max-w-lg">
         <div className="flex items-center justify-between w-full mb-6">
           <button 
-            onClick={onPrevPuzzle} 
+            onClick={onReturnToMenu}  
             className="bg-red-500 py-2 px-6 rounded-md"
           >
             Back
