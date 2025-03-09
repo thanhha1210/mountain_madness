@@ -14,6 +14,7 @@ const SecondPuzzle: React.FC<SecondPuzzleProps> = ({ onReturnToMenu, onSetPuzzle
   const [error, setError] = useState('');
   const [showRandomNumber, setShowRandomNumber] = useState(puzzles[3]?.solved); 
 
+
   // Complicated string with imposters
   const stringWithImposters = `qwertyasabc0000zxa0sdjllm00a9bcdxSAsASas
                                asdljk0asd0asdsaadmnq0aasdszv0a0bcxasd0z

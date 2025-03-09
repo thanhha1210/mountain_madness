@@ -37,6 +37,7 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
     { component: SecondPuzzle, solved: false,
       link: 'Error 404: Page Not Found',
       msg: 'Amidst the madness, a few numbers are playing hide and seek. Can you find them before they escape?'
+
     },
     { component: PopupPuzzle, solved: false, 
       link: "CLICK HERE FOR A PRIZE!!!",
