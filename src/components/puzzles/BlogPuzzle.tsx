@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 
 const BlogPuzzle = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () => void, onSetPuzzleStatus: (index: number, status: boolean) => void }) => {
-  const title = `Have you ever felt like something was watching you?`;
-  const message = `A fleeting shadow in the corner of your eye, a whisper when no one is there? You're not imagining it. FOUR things lurk in the darkness, and they thrive when you look away. Some call them hallucinations. Some say it's the mind playing tricks. But what if it's something else? Scientists have studied the phenomenon of shadow figures appearing in dimly lit rooms. They found that TWO types exist—one that watches, and one that follows.
-
-  The watchers remain still. You might see them in your periphery, standing just outside your vision. The followers? They are different. They move when you're not looking. You take a step, and suddenly, they are EIGHT steps closer.
-
-  People report waking up at exactly THREE a.m., feeling their breath turn cold. The room is silent, but the shadows are moving, shifting, SIX inches closer with each blink.
-
-  But the real horror? When the light flickers, and you realize—there was never just ONE shadow.`;
+  const title = `You Are Not Alone`;
+  const message = `The night feels still, yet shadows shift in ways that defy explanation. You glance over your shoulder—nothing. But the sense of being watched lingers.
+  
+  Some say it’s just the mind playing tricks, but others know better. THREE nights ago, someone else noticed the same creeping figures. They spoke of silhouettes standing at the foot of their bed, whispering in voices too soft to understand.
+  
+  You try to shake off the fear, but the shadows grow bolder. They crawl along the walls, moving in patterns that make NO sense. One moment, they stretch long and thin—unnatural. The next, they scatter, reforming in different corners of the room.
+  
+  Last night, you counted the times they appeared. It wasn’t just once. Not just twice. It happened SIX times before you finally lost the courage to keep looking.
+  
+  They never leave. They never rest. And soon, you’ll realize the truth: You are not alone.`;
 
   const [userAnswer, setUserAnswer] = useState('');
   const [error, setError] = useState('');
 
-  const correctAnswer = '428361'; 
+  const correctAnswer = '306'; 
 
   const handleSubmit = () => {
     if (userAnswer.trim() === correctAnswer) {
