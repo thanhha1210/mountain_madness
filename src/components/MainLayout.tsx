@@ -2,7 +2,6 @@ import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Test.css';
 import laptopImg from '../assets/img/laptop.png';
-import StartPage from './puzzles/StartPage';
 import MainPuzzle from './puzzles/MainPuzzle';
 
 function MainLayout() {
@@ -30,9 +29,9 @@ function MainLayout() {
           className="bg-cover bg-center bg-no-repeat w-full h-[90vh] flex items-center justify-center mx-auto"
           style={{ backgroundImage: `url(${laptopImg})` }}
         >
-          <div className="w-4/5 bg-transparent p-6 rounded-xl shadow-lg">
+          {/* <div className="w-4/5 bg-transparent p-6 rounded-xl shadow-lg">
             <MainPuzzle />
-          </div>
+          </div> */}
         </div>
       </Carousel.Item>
 
