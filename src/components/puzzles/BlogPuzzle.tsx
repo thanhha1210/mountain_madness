@@ -13,7 +13,7 @@ const BlogPuzzle = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () 
   const [userAnswer, setUserAnswer] = useState('');
   const [error, setError] = useState('');
 
-  const correctAnswer = '4'; 
+  const correctAnswer = '428361'; 
 
   const handleSubmit = () => {
     if (userAnswer.trim() === correctAnswer) {
