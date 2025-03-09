@@ -5,10 +5,10 @@ import ThirdPuzzle from './ThirdPuzzle';
 import FourthPuzzle from './FourthPuzzle';
 import FinalPuzzle from './FinalPuzzle';
 import StartPage from './StartPage';
-
+import EndPage from './EndPage';
 const MainPuzzle = () => {
     const [index, setIndex] = useState(0);
-    const puzzles = [StartPage, BlogPuzzle, SecondPuzzle, ThirdPuzzle, FourthPuzzle, FinalPuzzle];
+    const puzzles = [StartPage, BlogPuzzle, SecondPuzzle, ThirdPuzzle, FourthPuzzle, FinalPuzzle, EndPage];
 
     const handleNextPuzzle = () => {
         if (index < puzzles.length - 1) {

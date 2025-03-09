@@ -1,6 +1,5 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import StartPage from "./components/puzzles/StartPage";
 import Test from './components/Test'
 import MainLayout from './components/MainLayout';
 
