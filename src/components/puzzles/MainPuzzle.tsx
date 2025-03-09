@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import BlogPuzzle from './BlogPuzzle';
 import SecondPuzzle from './SecondPuzzle';
-import ThirdPuzzle from './ThirdPuzzle';
+import PopupPuzzle from './PopupPuzzle';
 import FourthPuzzle from './FourthPuzzle';
 import StartPage from './StartPage';
 import MenuPuzzle from './MenuPuzzle';
