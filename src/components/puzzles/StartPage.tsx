@@ -7,7 +7,7 @@ const StartPage = ({ onNextPuzzle, onPrevPuzzle }: { onNextPuzzle: () => void, o
     const [moves, setMoves] = useState(0);
     const [position, setPosition] = useState({ top: "60%", left: "50%" });
     
-    const startMessage = "Start Investigation";
+    const startMessage = "Why can I see them?";
     const [index, setIndex] = useState(0);
     const [message, setMessage] = useState("");
 

@@ -19,12 +19,20 @@ function Test() {
   const pictures = [lightButton, lightButtonPushed];
   const [index, setIndex] = useState(0);
   const puzzles = [StartPage, BlogPuzzle, SecondPuzzle, ThirdPuzzle, FourthPuzzle, FinalPuzzle];
+  const [lastPushedTime, setLastPushedTime] = useState(0);
   
-
   function resetLight() {
+    const now = Date.now();
+
+    if (now - lastPushedTime < 10000) {
+      return;
+    }
+
+    setLastPushedTime(now);
     setIdx(1);
-    setTimeout(() => { setIdx(0) }, 1000);
+    setTimeout(() => { setIdx(0); }, 300);
   }
+  
   const handleNextPuzzle = () => {
     if (index < puzzles.length - 1) {
     setIndex(index + 1);
