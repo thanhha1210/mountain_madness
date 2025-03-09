@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Logo from '../../assets/img/google.png';
 
-const FourthPuzzle = ({ onNextPuzzle }: { onNextPuzzle: () => void }) => {
+const FourthPuzzle = ({ onNextPuzzle, onPrevPuzzle }: { onNextPuzzle: () => void, onPrevPuzzle: () => void })  => {
   const [userAnswer, setUserAnswer] = useState('');
   const [error, setError] = useState('Decrypt the message to proceed.');
 
@@ -22,7 +22,16 @@ const FourthPuzzle = ({ onNextPuzzle }: { onNextPuzzle: () => void }) => {
   return (
     <div className="w-full h-screen flex justify-center items-center p-6">
       <div className="flex flex-col items-center z-10 w-full max-w-lg">
-        <img src={Logo} alt="Logo" className="w-32 mb-4" />
+        <div className="flex items-center justify-between w-full mb-6">
+          <button 
+            onClick={onPrevPuzzle} 
+            className="bg-red-500 py-2 px-6 rounded-md"
+          >
+            Back
+          </button>
+          <img src={Logo} alt="Logo" className="w-32" />
+          <div></div>
+        </div>
         <p className="text-lg mb-4">Cipher Puzzle:</p>
         <p className="text-lg mb-4">
           Encoded message: <strong>{' ' + cipherMessage}</strong>

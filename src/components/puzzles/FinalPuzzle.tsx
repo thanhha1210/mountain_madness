@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const LastPuzzle = () => {
+const FinalPuzzle = ({ onNextPuzzle, onPrevPuzzle }: { onNextPuzzle: () => void, onPrevPuzzle: () => void }) => {
   const [answer, setAnswer] = useState('');
   const [message, setMessage] = useState('Final puzzle. Solve to escape!');
   const navigate = useNavigate();
@@ -20,7 +20,16 @@ const LastPuzzle = () => {
   return (
     <div className="w-full flex flex-col items-center relative p-6 mx-auto">
       <div className="flex flex-col items-center mb-2 z-10 w-full">
-        <h1 className="text-xl mb-4">Final Puzzle</h1>
+        <div className="flex items-center justify-between w-full mb-6">
+          <button 
+            onClick={onPrevPuzzle} 
+            className="bg-red-500 py-2 px-6 rounded-md"
+          >
+            Back
+          </button>
+          <h1 className="text-xl mb-4">Final Puzzle</h1>
+          <div></div>
+        </div>
         <p className="text-sm mb-4">What is the ultimate word to escape the room?</p>
         <input
           type="text"
@@ -37,4 +46,4 @@ const LastPuzzle = () => {
   );
 };
 
-export default LastPuzzle;
+export default FinalPuzzle;

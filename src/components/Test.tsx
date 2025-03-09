@@ -8,19 +8,32 @@ import MainPuzzle from './puzzles/MainPuzzle';
 import lightButton from '../assets/img/lightButton.png'
 import lightButtonPushed from '../assets/img/lightButtonPress.png'
 import backgroundImage from '../assets/img/laptop.png'
+import BlogPuzzle from './puzzles/BlogPuzzle';
+import SecondPuzzle from './puzzles/SecondPuzzle';
+import FinalPuzzle from './puzzles/FinalPuzzle';
+import FourthPuzzle from './puzzles/FourthPuzzle';
+import ThirdPuzzle from './puzzles/ThirdPuzzle';
 
 function Test() {
   const [idx, setIdx] = useState(0);
   const pictures = [lightButton, lightButtonPushed];
+  const [index, setIndex] = useState(0);
+  const puzzles = [StartPage, BlogPuzzle, SecondPuzzle, ThirdPuzzle, FourthPuzzle, FinalPuzzle];
+  
 
   function resetLight() {
     setIdx(1);
     setTimeout(() => { setIdx(0) }, 1000);
   }
+  const handleNextPuzzle = () => {
+    if (index < puzzles.length - 1) {
+    setIndex(index + 1);
+    }
+};
 
   return (
     <div className="Test">
-        <div style={styles.container}></div>
+        {/* <div style={styles.container}></div> */}
         <div style={{ marginTop: '0px', width: '100vw', marginLeft: '0', padding: '0' }}>
             <Carousel
             nextIcon={<span className="carousel-control-next-icon" style={{ filter: 'invert(100%)' }} />}
@@ -41,7 +54,7 @@ function Test() {
                 <div style={{ position: 'relative' }}> 
                     <img src={laptopImg} alt="Second slide" style={{ width: '100%' }} />
                     <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-                    <StartPage />
+                    <MainPuzzle />
                     </div>
                 </div>
                 </Carousel.Item>
