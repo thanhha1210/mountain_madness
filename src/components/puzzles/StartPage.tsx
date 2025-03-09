@@ -1,7 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '../../assets/img/google.png';
 
-const StartPage = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () => void, onSetPuzzleStatus: (index: number, status: boolean) => void }) => {
+const StartPage = ({
+  onReturnToMenu,
+  onSetPuzzleStatus,
+  puzzles,
+  randomNumber,
+}: {
+  onReturnToMenu: () => void;
+  onSetPuzzleStatus: (index: number, status: boolean) => void;
+  puzzles: any[];
+  randomNumber: number;
+}) => {
   const [moves, setMoves] = useState(0);
   const [position, setPosition] = useState({ top: '60%', left: '50%' });
 
@@ -10,6 +20,15 @@ const StartPage = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () =
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [answer, setAnswer] = useState(0);
+  const [showRandomNumber, setShowRandomNumber] = useState(puzzles[3]?.solved); 
+
+  useEffect(() => {
+    console.log('puzzles[3]?.solved:', puzzles[3]?.solved);
+    console.log('randomNumber:', randomNumber); 
+    if (puzzles[3]?.solved) {
+      setShowRandomNumber(true);
+    }
+  }, [puzzles, randomNumber]); 
 
   const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
     if (index < startMessage.length) {
@@ -19,18 +38,17 @@ const StartPage = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () =
   };
 
   const moveButton = () => {
-    if (moves < 6) {
+    if (moves < randomNumber) {
       const randomX = Math.random() * 70 + '%';
       setPosition({ top: '60%', left: randomX });
       setMoves(moves + 1);
-    } 
+    }
   };
 
   const handleSubmit = () => {
-    if (answer === 6) {
+    if (answer === randomNumber) {
       setMessage('Case Opened');
-      onSetPuzzleStatus(1, true);
-      onReturnToMenu();
+      onSetPuzzleStatus(3, true);
     } 
     else {
       setError('Incorrect answer. Try again!');
@@ -40,7 +58,7 @@ const StartPage = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () =
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center text-black relative">
       <div className="flex flex-col items-center mb-2 z-10 w-[60%]">
-        <div className='flex mb-2 items-center justify-between'>
+        <div className="flex mb-2 items-center justify-between">
           {/* Minimal Back Button */}
           <button
             onClick={onReturnToMenu}
@@ -81,11 +99,32 @@ const StartPage = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () =
           Search
         </button>
 
-       
-
         {/* Error message */}
         {error && <p className=" text-red-500 mb-3">{error}</p>}
       </div>
+
+      {/* Modal showing the random number after correct answer or if solved */}
+      {showRandomNumber && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-4xl z-50">
+          <div className="flex items-center justify-center">
+            <div
+              className="w-[80px] h-[80px] rounded-full mx-2 text-center flex justify-center items-center"
+              style={{
+                animation: `moveBox 2s ease`,
+                position: 'relative',
+              }}
+            >
+              {randomNumber} {/* This should display the random number */}
+            </div>
+          </div>
+          <button
+            onClick={() => onReturnToMenu()}
+            className="py-2 px-5 rounded bg-black text-white border-none mt-5"
+          >
+            Next Puzzle
+          </button>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,22 +1,32 @@
 import React, { useState } from 'react';
 import Logo from '../../assets/img/google.png';
 
-const SecondPuzzle = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () => void, onSetPuzzleStatus: (index: number, status: boolean) => void }) => {
+interface SecondPuzzleProps {
+  onReturnToMenu: () => void;
+  onSetPuzzleStatus: (index: number, status: boolean) => void;
+  randomNumber: number;
+  puzzles: any[];
+}
+
+const SecondPuzzle: React.FC<SecondPuzzleProps> = ({ onReturnToMenu, onSetPuzzleStatus, randomNumber, puzzles }) => {
   const [userAnswer, setUserAnswer] = useState('');
   const [message, setMessage] = useState('Can you find the imposter? Hint: string length 2');
   const [error, setError] = useState('');
+  const [showRandomNumber, setShowRandomNumber] = useState(puzzles[4]?.solved); 
 
   // Complicated string with imposters
   const stringWithImposters = `qwertyasabc0000zxa0sdjllm00a9bcdxSAsASas
                                asdljk0asd0asdsaadmnq0aasdszv0a0bcxasd0z
                                1xasds0qwertyasd0z0asdsad000aaaADASDSAD`; 
   const correctAnswer = '91'; 
+
   const handleSubmit = () => {
     if (userAnswer === correctAnswer) {
       setError('Correct! You’ve found the imposters.');
-      onSetPuzzleStatus(3, true);
-      setTimeout(onReturnToMenu, 1000);
-    } else {
+      onSetPuzzleStatus(4, true); 
+      setShowRandomNumber(true); 
+    }
+    else {
       setError('Incorrect. Try again!');
     }
   };
@@ -67,6 +77,28 @@ const SecondPuzzle = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: (
           <p className="text-red-500 mt-4">{error}</p>
         </div>
       </div>
+
+      {showRandomNumber && (   
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-4xl z-50">    
+          <div className="flex items-center justify-center">
+            <div 
+              className="w-[80px] h-[80px] rounded-full mx-2 text-center flex justify-center items-center"
+              style={{ 
+                animation: `moveBox 2s ease`, 
+                position: 'relative' 
+              }}
+            >
+              {randomNumber}
+            </div>
+          </div>
+          <button 
+            onClick={() => onSetPuzzleStatus(4, true)} 
+            className="py-2 px-5 rounded bg-black text-white border-none mt-5"
+          >
+            Next Puzzle
+          </button>
+        </div>
+      )}
     </div>
   );
 };
