@@ -43,7 +43,7 @@ const StartPage = () => {
     };
 
     return (
-        <div className="w-full h-screen flex flex-col items-center justify-center bg-white text-black relative">
+        <div className="w-full h-screen flex flex-col items-center justify-center text-black relative">
             <div className="flex flex-col items-center mb-6 z-10 w-[60%]">
                 <img src={Logo} alt="Logo" className="w-32 mb-4" />
                 <input 
