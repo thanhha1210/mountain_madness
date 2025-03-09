@@ -47,7 +47,7 @@ const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage, answer
               <input
                 type="text"
                 value={answer}
-                placeholder='Enter the 8 Number OTP'
+                placeholder='Enter the 4 Number OTP'
                 onChange={(e) => setAnswer(e.target.value)}
                 className="px-2 py-2 border border-gray-500 rounded-md mb-4"
               />

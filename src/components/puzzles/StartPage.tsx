@@ -23,9 +23,9 @@ const StartPage = ({
   const [showRandomNumber, setShowRandomNumber] = useState(puzzles[3]?.solved); 
 
   useEffect(() => {
-    console.log('puzzles[3]?.solved:', puzzles[3]?.solved);
+    console.log('puzzles[1]?.solved:', puzzles[1]?.solved);
     console.log('randomNumber:', randomNumber); 
-    if (puzzles[3]?.solved) {
+    if (puzzles[1]?.solved) {
       setShowRandomNumber(true);
     }
   }, [puzzles, randomNumber]); 
@@ -48,7 +48,6 @@ const StartPage = ({
   const handleSubmit = () => {
     if (answer === randomNumber) {
       setMessage('Case Opened');
-      onSetPuzzleStatus(3, true);
     } 
     else {
       setError('Incorrect answer. Try again!');
@@ -104,7 +103,7 @@ const StartPage = ({
       </div>
 
       {/* Modal showing the random number after correct answer or if solved */}
-      {showRandomNumber && (
+      {(showRandomNumber || message == 'Case Opened') && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-4xl z-50">
           <div className="flex items-center justify-center">
             <div
@@ -118,7 +117,7 @@ const StartPage = ({
             </div>
           </div>
           <button
-            onClick={() => onReturnToMenu()}
+            onClick={() => onSetPuzzleStatus(1, true)}
             className="py-2 px-5 rounded bg-black text-white border-none mt-5"
           >
             Next Puzzle

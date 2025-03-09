@@ -12,8 +12,7 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
   const [puzzles, setPuzzles] = useState([
     { component: MenuPuzzle, solved: true, 
       link: '', 
-      msg: '',
-      id: 0
+      msg: ''
     },
     // { component: StartPage, solved: false, 
     //   link: 'Find the number',
@@ -27,21 +26,21 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
     //   link: "Number Ninja: What’s the Next Hit?",
     //   msg: "Unleash your inner mathematician and crack the code — what's the missing number?"
     // },
-    { component: PopupPuzzle, solved: false, 
-      link: "CLICK HERE FOR A PRIZE!!!",
-      msg: "DON'T BE SHY, COLLECT YOUR PRIZE!!!"
-    },
+    { component: StartPage, solved: false, 
+        link: 'Find the number',
+        msg: 'Can you catch me? I move fast, just like your mind!'
+      },
     { component: WordGlitchPuzzle, solved: false,
       link: 'Word Glitch',
       msg: 'Solve the puzzle by finding the pattern in the words before it glitches out!'
     },
-    { component: StartPage, solved: false, 
-      link: 'Find the number',
-      msg: 'Can you catch me? I move fast, just like your mind!'
-    },
     { component: SecondPuzzle, solved: false,
       link: 'Error 404: Page Not Found',
       msg: 'Amidst the madness, a few numbers are playing hide and seek. Can you find them before they escape?'
+    },
+    { component: PopupPuzzle, solved: false, 
+      link: "CLICK HERE FOR A PRIZE!!!",
+      msg: "DON'T BE SHY, COLLECT YOUR PRIZE!!!"
     },
     { component: FourthPuzzle, solved: false,
       link: 'Go get the prize!!!', 
@@ -58,7 +57,7 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
     setRandomNumbers(Array.from({ length: 6 }, () => Math.floor(Math.random() * 10)));
   }, []);
 
-    const answerKey = randomNumbers.slice(1, 2).join('');
+    const answerKey = randomNumbers.slice(1, 5).join('');
 
   const handleIndex = (i: number) => {
     setIndex(i); // Set index to selected puzzle
