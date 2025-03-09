@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import Logo from '../assets/img/google.png';
+import Logo from '../../assets/img/google.png';
 import { useNavigate } from 'react-router-dom';
 
-const StartPage = () => {
+const StartPage = ({ onNextPuzzle, onPrevPuzzle }: { onNextPuzzle: () => void, onPrevPuzzle: () => void }) => {
     const [clickable, setClickable] = useState(false);
     const [moves, setMoves] = useState(0);
     const [position, setPosition] = useState({ top: "60%", left: "50%" });
     
-    const startMessage = "Start Investigation";
+    const startMessage = "Why can I see them?";
     const [index, setIndex] = useState(0);
     const [message, setMessage] = useState("");
 
@@ -37,7 +37,7 @@ const StartPage = () => {
         }
         else {
             setMessage("Case Opened");
-            navigate('/first-puzzle');
+            onNextPuzzle();
         }
        
     };
