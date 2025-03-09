@@ -63,7 +63,7 @@ const WordGlitchPuzzle = (props: {
                     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-4xl z-50">
                         {props.randomNumber}
                         <button 
-                            onClick={() => props.onSetPuzzleStatus(3, true)} 
+                            onClick={() => props.onSetPuzzleStatus(2, true)} 
                             className="py-2 px-5 rounded bg-black text-white border-none mt-5"
                         >
                             Next Puzzle

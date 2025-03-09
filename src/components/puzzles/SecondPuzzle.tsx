@@ -12,7 +12,8 @@ const SecondPuzzle: React.FC<SecondPuzzleProps> = ({ onReturnToMenu, onSetPuzzle
   const [userAnswer, setUserAnswer] = useState('');
   const [message, setMessage] = useState('Can you find the imposter? Hint: string length 2');
   const [error, setError] = useState('');
-  const [showRandomNumber, setShowRandomNumber] = useState(puzzles[2]?.solved); 
+  const [showRandomNumber, setShowRandomNumber] = useState(puzzles[3]?.solved); 
+
 
   // Complicated string with imposters
   const stringWithImposters = `qwertyasabc0000zxa0sdjllm00a9bcdxSAsASas
@@ -23,7 +24,7 @@ const SecondPuzzle: React.FC<SecondPuzzleProps> = ({ onReturnToMenu, onSetPuzzle
   const handleSubmit = () => {
     if (userAnswer === correctAnswer) {
       setError('Correct! You’ve found the imposters.');
-      onSetPuzzleStatus(2, true); 
+      // onSetPuzzleStatus(3, true); 
       setShowRandomNumber(true); 
     }
     else {
@@ -78,7 +79,7 @@ const SecondPuzzle: React.FC<SecondPuzzleProps> = ({ onReturnToMenu, onSetPuzzle
         </div>
       </div>
 
-      {showRandomNumber && (   
+      {(showRandomNumber || error === 'Correct! You’ve found the imposters.') && (   
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-4xl z-50">    
           <div className="flex items-center justify-center">
             <div 
@@ -92,7 +93,7 @@ const SecondPuzzle: React.FC<SecondPuzzleProps> = ({ onReturnToMenu, onSetPuzzle
             </div>
           </div>
           <button 
-            onClick={() => onSetPuzzleStatus(2, true)} 
+            onClick={() => onSetPuzzleStatus(3, true)} 
             className="py-2 px-5 rounded bg-black text-white border-none mt-5"
           >
             Next Puzzle

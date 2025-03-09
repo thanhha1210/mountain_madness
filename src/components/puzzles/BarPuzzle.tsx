@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ProgressBar, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "./BarPuzzle.css";
 
 const BarPuzzle = ({ setNotifyUser }: { setNotifyUser: (value: boolean) => void }) => {

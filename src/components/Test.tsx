@@ -111,6 +111,7 @@ function resetLight() {
                                 setGameOver(false);
                                 setGhostPosition(0);
                                 setMainTimer(0);
+                                setGameWin(false);
                             }}
                         >
                             Restart Game
