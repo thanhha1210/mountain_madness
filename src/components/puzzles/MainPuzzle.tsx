@@ -12,7 +12,8 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
   const [puzzles, setPuzzles] = useState([
     { component: MenuPuzzle, solved: true, 
       link: '', 
-      msg: '' 
+      msg: '',
+      id: 0
     },
     // { component: StartPage, solved: false, 
     //   link: 'Find the number',
@@ -22,10 +23,10 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
     //   link: 'You are not alone',
     //   msg: 'The night feels still, yet shadows shift in ways that defy explanation. You glance over your shoulder—nothing. But the sense of being watched lingers.'
     // },
-    // { component: SecondPuzzle, solved: false,
-    //   link: 'Error 404: Page Not Found',
-    //   msg: 'Amidst the madness, a few numbers are playing hide and seek. Can you find them before they escape?'
-    // },
+    { component: SecondPuzzle, solved: false,
+      link: 'Error 404: Page Not Found',
+      msg: 'Amidst the madness, a few numbers are playing hide and seek. Can you find them before they escape?'
+    },
     // { component: ThirdPuzzle, solved: false, 
     //   link: "Number Ninja: What’s the Next Hit?",
     //   msg: "Unleash your inner mathematician and crack the code — what's the missing number?"
@@ -47,6 +48,8 @@ const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
 useEffect(() => {
     setRandomNumbers(Array.from({ length: 3 }, () => Math.floor(Math.random() * 10)));
 }, []);
+
+    const answerKey = randomNumbers.slice(1, 2).join('');
 
   const handleIndex = (i: number) => {
     setIndex(i); // Set index to selected puzzle
@@ -75,6 +78,7 @@ useEffect(() => {
         onSetPuzzleStatus={setPuzzleStatus}
         onGoToWinPage={handleWin}
         randomNumber={randomNumbers[index]}
+        answerKey={answerKey}
       />
 
     </div>

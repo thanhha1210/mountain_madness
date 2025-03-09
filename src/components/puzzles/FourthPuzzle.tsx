@@ -3,10 +3,11 @@ import Logo from '../../assets/img/Amazon-Logo.png';
 import Light from '../../assets/img/lb.png';
 import Prime from '../../assets/img/prime.jfif';
 
-const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage }: { 
+const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage, answerKey }: { 
   onReturnToMenu: () => void, 
   onSetPuzzleStatus: (index: number, status: boolean) => void, 
-  onGoToWinPage: () => void
+  onGoToWinPage: () => void,
+  answerKey: string
 }) => {
 
   const [answer, setAnswer] = useState('');
@@ -14,8 +15,8 @@ const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage }: {
 
   const handleClick = () => {
     // Handle the place order action here
-    if (answer === '63069137') {
-      onSetPuzzleStatus(5, true);
+    if (answer === answerKey) {
+      onSetPuzzleStatus(2, true);
       onGoToWinPage();
     }
     else {
