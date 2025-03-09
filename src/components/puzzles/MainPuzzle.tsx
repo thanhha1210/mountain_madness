@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import BlogPuzzle from './BlogPuzzle';
 import SecondPuzzle from './SecondPuzzle';
-import ThirdPuzzle from './ThirdPuzzle';
+import PopupPuzzle from './PopupPuzzle';
 import FourthPuzzle from './FourthPuzzle';
 import StartPage from './StartPage';
 import MenuPuzzle from './MenuPuzzle';
@@ -26,7 +26,7 @@ const MainPuzzle = () => {
       link: 'Error 404: Page Not Found',
       msg: 'Amidst the madness, a few numbers are playing hide and seek. Can you find them before they escape?'
     },
-    { component: ThirdPuzzle, solved: false, 
+    { component: PopupPuzzle, solved: false, 
       link: "Number Ninja: What’s the Next Hit?",
       msg: "Unleash your inner mathematician and crack the code — what's the missing number?"
     },
