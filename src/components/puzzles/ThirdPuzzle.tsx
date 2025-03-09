@@ -10,7 +10,6 @@ const ThirdPuzzle =  ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: (
   const sequence = [2, 5, 10, 17, 26];
   const correctAnswer = 37;
 
-
   const handleSubmit = () => {
     if (parseInt(userAnswer) === correctAnswer) {
       setError('Correct! You’ve solved the mystery.');
@@ -23,12 +22,12 @@ const ThirdPuzzle =  ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: (
   };
 
   return (
-    <div className="w-full flex justify-center items-center p-6 border border-1 border-black">
-      <div className="flex flex-col items-center mb-2 z-10 w-full max-w-lg">
+    <div className="w-full flex justify-center items-center p-6">
+         <div className="flex flex-col items-center p-6 w-[90%] md:w-[50%] rounded-lg shadow-lg">
         <div className="flex items-center justify-between w-full mb-6">
-          <button 
-            onClick={onReturnToMenu}  
-            className="bg-red-500 text-white py-2 px-6 rounded-md transition-all hover:bg-red-600"
+          <button
+            onClick={onReturnToMenu}
+            className="border border-1 border-black py-2 px-6 rounded-md"
           >
             Home
           </button>
@@ -45,16 +44,20 @@ const ThirdPuzzle =  ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: (
           type="text"
           value={userAnswer}
           onChange={(e) => setUserAnswer(e.target.value)}
-          className="px-2 py-2 border border-gray-500 rounded-md w-full"
+          className="px-4 py-2 border rounded-md w-full mb-4"
           placeholder="Your answer"
         />
+        
+        {/* Minimal Submit Button */}
         <button 
             onClick={handleSubmit} 
-            className="bg-blue-500 text-white py-2 px-6 rounded-md mt-4 hover:bg-blue-600"
+            className="bg-gray-500 text-white py-2 px-6 rounded-md mt-4 hover:bg-gray-600"
           >
             Submit Answer
-        </button>
-        <p className="text-red-500 mt-4">{message}</p>
+          </button>
+        
+        {/* Error message */}
+        <p className="text-red-500 mt-4">{error}</p>
       </div>
     </div>
   );
