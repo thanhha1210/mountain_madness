@@ -58,7 +58,7 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
     setRandomNumbers(Array.from({ length: 6 }, () => Math.floor(Math.random() * 10)));
   }, []);
 
-    const answerKey = randomNumbers.slice(1, 2).join('');
+    const answerKey = randomNumbers.slice(1, 5).join('');
 
   const handleIndex = (i: number) => {
     setIndex(i); // Set index to selected puzzle

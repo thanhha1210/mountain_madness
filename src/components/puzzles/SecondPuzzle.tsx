@@ -12,7 +12,7 @@ const SecondPuzzle: React.FC<SecondPuzzleProps> = ({ onReturnToMenu, onSetPuzzle
   const [userAnswer, setUserAnswer] = useState('');
   const [message, setMessage] = useState('Can you find the imposter? Hint: string length 2');
   const [error, setError] = useState('');
-  const [showRandomNumber, setShowRandomNumber] = useState(puzzles[4]?.solved); 
+  const [showRandomNumber, setShowRandomNumber] = useState(puzzles[2]?.solved); 
 
   // Complicated string with imposters
   const stringWithImposters = `qwertyasabc0000zxa0sdjllm00a9bcdxSAsASas
@@ -92,7 +92,7 @@ const SecondPuzzle: React.FC<SecondPuzzleProps> = ({ onReturnToMenu, onSetPuzzle
             </div>
           </div>
           <button 
-            onClick={() => onSetPuzzleStatus(4, true)} 
+            onClick={() => onSetPuzzleStatus(2, true)} 
             className="py-2 px-5 rounded bg-black text-white border-none mt-5"
           >
             Next Puzzle
