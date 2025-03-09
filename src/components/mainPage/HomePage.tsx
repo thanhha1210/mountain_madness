@@ -33,13 +33,6 @@ const Home = () => {
   };
 
 
-  // Function to generate random positions for buttons
-  const getRandomPosition = () => {
-    const x = Math.floor(Math.random() * (window.innerWidth - 180)); 
-    const y = Math.floor(Math.random() * (window.innerHeight - 180)); 
-    return { left: `${x}px`, top: `${y}px` };
-  };
-
   // Button actions
   const buttons = [
     { label: "Play", action: () => navigate("/test"), icon: <FaPlay /> },
@@ -60,13 +53,11 @@ const Home = () => {
     >
      
       {buttons.map((button, index) => {
-        const position = getRandomPosition();
         return (
           <button
             key={index}
             onClick={button.action}
-            style={{ left: position.left, top: position.top }}
-            className="absolute px-6 py-3 text-xl bg-gray-800 text-white rounded-lg shadow-lg flex items-center gap-3 hover:bg-gray-700 focus:outline-none"
+            className=" px-6 py-3 text-xl bg-gray-800 text-white rounded-lg shadow-lg flex items-center gap-3 hover:bg-gray-700 focus:outline-none mx-4 mb-4"
           >
             {button.icon}
             <span>{button.label}</span>
