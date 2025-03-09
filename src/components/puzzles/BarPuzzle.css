@@ -1,0 +1,67 @@
+.game-container {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .progress-bars {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  /* Each progress bar wrapper */
+  .progress-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Outer container for each progress bar */
+  .progress-container {
+    width: 60px; /* Thicker bars */
+    height: 250px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end; /* Ensures it fills upwards */
+    border: 3px solid white;
+  }
+  
+  /* Inner progress bar */
+  .progress-bar-vertical {
+    width: 100%;
+    transition: height 0.1s ease-in-out;
+  }
+  
+  .fill-button {
+    margin-top: 10px;
+    background: green;
+    border: none;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 5px;
+  }
+  
+  .fill-button:hover {
+    background: limegreen;
+  }
+  
+  .game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: red;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+  
