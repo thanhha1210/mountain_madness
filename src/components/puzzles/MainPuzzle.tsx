@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import BlogPuzzle from './BlogPuzzle';
 import SecondPuzzle from './SecondPuzzle';
 import PopupPuzzle from './PopupPuzzle';
 import FourthPuzzle from './FourthPuzzle';
 
 import MenuPuzzle from './MenuPuzzle';
 import WordGlitchPuzzle from './WordGlitchPuzzle';
+import StartPage from './StartPage';
 
 const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) => {
   const [index, setIndex] = useState(0);
@@ -14,18 +14,6 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
       link: '', 
       msg: '' 
     },
-    // { component: StartPage, solved: false, 
-    //   link: 'Find the number',
-    //   msg: 'Can you catch me? I move fast, just like your mind!'
-    // },
-    // { component: BlogPuzzle, solved: false,
-    //   link: 'You are not alone',
-    //   msg: 'The night feels still, yet shadows shift in ways that defy explanation. You glance over your shoulder—nothing. But the sense of being watched lingers.'
-    // },
-    // { component: SecondPuzzle, solved: false,
-    //   link: 'Error 404: Page Not Found',
-    //   msg: 'Amidst the madness, a few numbers are playing hide and seek. Can you find them before they escape?'
-    // },
     { component: PopupPuzzle, solved: false, 
       link: "CLICK HERE FOR A PRIZE!!!",
       msg: "DON'T BE SHY, COLLECT YOUR PRIZE!!!"
@@ -33,6 +21,14 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
     { component: WordGlitchPuzzle, solved: false,
       link: 'Word Glitch',
       msg: 'Solve the puzzle by finding the pattern in the words before it glitches out!'
+    },
+    { component: StartPage, solved: false, 
+      link: 'Find the number',
+      msg: 'Can you catch me? I move fast, just like your mind!'
+    },
+    { component: SecondPuzzle, solved: false,
+      link: 'Error 404: Page Not Found',
+      msg: 'Amidst the madness, a few numbers are playing hide and seek. Can you find them before they escape?'
     },
     { component: FourthPuzzle, solved: false,
       link: 'Go get the prize!!!', 
@@ -61,7 +57,6 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
   };
 
   const handleWin = () => setGameWin(true); 
-
   const CurrentPuzzle = puzzles[index].component;
 
   return (

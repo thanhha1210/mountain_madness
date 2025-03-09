@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Logo from '../../assets/img/google.png';
 
-const StartPage = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () => void, onSetPuzzleStatus: (index: number, status: boolean) => void }) => {
+const StartPage = ({ onReturnToMenu, onSetPuzzleStatus,}: { onReturnToMenu: () => void, onSetPuzzleStatus: (index: number, status: boolean) => void }) => {
   const [moves, setMoves] = useState(0);
   const [position, setPosition] = useState({ top: '60%', left: '50%' });
 
