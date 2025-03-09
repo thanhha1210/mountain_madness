@@ -67,6 +67,7 @@ const MainPuzzle = () => {
       />
     </div>
   );
+
 };
 
 export default MainPuzzle;
