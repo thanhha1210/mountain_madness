@@ -11,16 +11,16 @@ const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage, answer
 }) => {
 
   const [answer, setAnswer] = useState('');
-  const [error, setError] = useState(''); // Add error state to show feedback to the user
+  const [error, setError] = useState(''); 
 
   const handleClick = () => {
     // Handle the place order action here
     if (answer === answerKey) {
-      onSetPuzzleStatus(2, true);
+      onSetPuzzleStatus(5, true);
       onGoToWinPage();
-    }
+    } 
     else {
-      setError('Incorrect. Try again!'); // Display error message
+      setError('Incorrect. Try again!'); 
     }
   };
 
@@ -41,6 +41,7 @@ const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage, answer
         {/* Shipping Address Section */}
         <div className="flex border-2 border-gray-600 p-4 rounded-md shadow-md w-[60%]">
           <div className='w-[70%]'>
+            <strong className="block text-xl mb-2 text-left">NEW LIGHTBULB</strong>
             <div className='flex justify-content-between align-center'>
               <p className="font-semibold text-xl text-left">OTP: </p>
               <input
@@ -51,7 +52,6 @@ const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage, answer
                 className="px-2 py-2 border border-gray-500 rounded-md mb-4"
               />
             </div>
-
             <div className="text-gray-700 blur-xs text-left">
               <p>Address: 1313 Hasting Avenue Lorem, ipsum dolor.</p>
               <p>Post code: V3V 3V3  Lorem, ipsum dolor.</p>

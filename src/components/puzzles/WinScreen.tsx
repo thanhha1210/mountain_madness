@@ -1,15 +1,14 @@
 import ReactAudioPlayer from 'react-audio-player';
+import { useNavigate } from 'react-router-dom';
 
 const WinScreen = ({onStartScreen} : {onStartScreen: () => void}) => {
-
+    const navigate = useNavigate();
     const handleClick = () => {
-        onStartScreen();
+        navigate('/home');
     };
 
     return (
         <div className="w-full h-screen flex flex-col items-center justify-center text-black relative">
-            {/* <div className="flex flex-col items-center mb-6 z-10 w-[60%]">
-            </div> */}
             <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-80 text-white" style={{ zIndex: 100 }}>
             <h1 className="text-2xl">Congratulations!</h1>
             <p className="text-lg">You have escaped the nightmare!</p>
