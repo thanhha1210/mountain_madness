@@ -12,8 +12,21 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
   const [puzzles, setPuzzles] = useState([
     { component: MenuPuzzle, solved: true, 
       link: '', 
-      msg: '' 
+      msg: '',
+      id: 0
     },
+    // { component: StartPage, solved: false, 
+    //   link: 'Find the number',
+    //   msg: 'Can you catch me? I move fast, just like your mind!'
+    // },
+    // { component: BlogPuzzle, solved: false,
+    //   link: 'You are not alone',
+    //   msg: 'The night feels still, yet shadows shift in ways that defy explanation. You glance over your shoulder—nothing. But the sense of being watched lingers.'
+    // },
+    // { component: ThirdPuzzle, solved: false, 
+    //   link: "Number Ninja: What’s the Next Hit?",
+    //   msg: "Unleash your inner mathematician and crack the code — what's the missing number?"
+    // },
     { component: PopupPuzzle, solved: false, 
       link: "CLICK HERE FOR A PRIZE!!!",
       msg: "DON'T BE SHY, COLLECT YOUR PRIZE!!!"
@@ -45,6 +58,8 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
     setRandomNumbers(Array.from({ length: 6 }, () => Math.floor(Math.random() * 10)));
   }, []);
 
+    const answerKey = randomNumbers.slice(1, 2).join('');
+
   const handleIndex = (i: number) => {
     setIndex(i); // Set index to selected puzzle
   };
@@ -71,7 +86,7 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
         onSetPuzzleStatus={setPuzzleStatus}
         onGoToWinPage={handleWin}
         randomNumber={randomNumbers[index]}
-        randomNumbers={randomNumbers}
+        answerKey={answerKey}
       />
 
     </div>

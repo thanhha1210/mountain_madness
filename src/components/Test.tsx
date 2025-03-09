@@ -19,7 +19,7 @@ import MainPuzzle from './puzzles/MainPuzzle';
 import { motion } from "framer-motion";
 import ReactAudioPlayer from 'react-audio-player';
 import { FaVolumeMute, FaVolumeUp } from "react-icons/fa";
-
+import BarPuzzle from './puzzles/BarPuzzle';
 
 
 function Test() {
@@ -31,6 +31,7 @@ function Test() {
     const [gameOver, setGameOver] = useState(false);
     const [gameWin, setGameWin] = useState(false);
     const [volume, setVolume] = useState(1);
+    const [notifyUser, setNotifyUser] = useState(false);
     
   useEffect(() => {
     const interval = setInterval(() => {
@@ -129,7 +130,14 @@ function resetLight() {
             >
         <Carousel.Item>
             <div style={{ ...styles.LightsContainer, backgroundImage: idx ? `url(${LightsOnLeft})` : `url(${LightsOutLeft})`, display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}></div>
-
+            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+                <BarPuzzle setNotifyUser={setNotifyUser}/>
+            </div>
+            {notifyUser && (
+                <div style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)', backgroundColor: 'yellow', padding: '10px', borderRadius: '5px' }}>
+                    <p>Notification: Action completed!</p>
+                </div>
+            )}
         </Carousel.Item>
         
                     

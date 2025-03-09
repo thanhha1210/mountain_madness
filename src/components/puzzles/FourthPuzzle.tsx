@@ -3,19 +3,19 @@ import Logo from '../../assets/img/Amazon-Logo.png';
 import Light from '../../assets/img/lb.png';
 import Prime from '../../assets/img/prime.jfif';
 
-const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage, randomNumbers }: { 
+const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage, answerKey }: { 
   onReturnToMenu: () => void, 
   onSetPuzzleStatus: (index: number, status: boolean) => void, 
   onGoToWinPage: () => void,
-  randomNumbers: number[] 
+  answerKey: string
 }) => {
 
   const [answer, setAnswer] = useState('');
   const [error, setError] = useState(''); 
 
   const handleClick = () => {
-    const correctAnswer = randomNumbers.join('').substring (1, 5); 
-    if (answer === correctAnswer) {
+    // Handle the place order action here
+    if (answer === answerKey) {
       onSetPuzzleStatus(5, true);
       onGoToWinPage();
     } 
