@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-const FinalPuzzle = ({ onNextPuzzle, onPrevPuzzle }: { onNextPuzzle: () => void, onPrevPuzzle: () => void }) => {
+
+const FinalPuzzle = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () => void, onSetPuzzleStatus: (index: number, status: boolean) => void })  => {
   const [answer, setAnswer] = useState('');
   const [message, setMessage] = useState('Final puzzle. Solve to escape!');
-  const navigate = useNavigate();
+  const [error, setError] = useState('');
 
   const correctAnswer = '428361'; // The word to win.
 
   const handleSubmit = () => {
     if (answer.toLowerCase() === correctAnswer) {
-      navigate('/end'); // End page after successful puzzle completion
+      setError('Correct! You’ve solved the mystery.');
+      onSetPuzzleStatus(6,true);
+      setTimeout(onReturnToMenu, 1000); 
     } 
     else {
       setMessage('Incorrect answer. Try again!');
@@ -18,11 +20,11 @@ const FinalPuzzle = ({ onNextPuzzle, onPrevPuzzle }: { onNextPuzzle: () => void,
   };
 
   return (
-    <div className="w-full flex flex-col items-center relative p-6 mx-auto">
+    <div className="w-full flex flex-col items-center relative p-6 mx-auto border border-1 border-black">
       <div className="flex flex-col items-center mb-2 z-10 w-full">
         <div className="flex items-center justify-between w-full mb-6">
           <button 
-            onClick={onPrevPuzzle} 
+            onClick={onReturnToMenu} 
             className="bg-red-500 py-2 px-6 rounded-md"
           >
             Back
@@ -40,7 +42,7 @@ const FinalPuzzle = ({ onNextPuzzle, onPrevPuzzle }: { onNextPuzzle: () => void,
         <button onClick={handleSubmit} className="bg-blue-500 text-white py-2 px-6 rounded-md">
           Submit Answer
         </button>
-        <p className="text-red-500 mt-4">{message}</p>
+        <p className="text-red-500 mt-4">{error}</p>
       </div>
     </div>
   );

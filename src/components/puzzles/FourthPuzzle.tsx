@@ -1,53 +1,86 @@
 import React, { useState } from 'react';
-import Logo from '../../assets/img/google.png';
+import Logo from '../../assets/img/Amazon-Logo.png';
+import Light from '../../assets/img/lb.png';
+import Prime from '../../assets/img/prime.jfif';
 
-const FourthPuzzle = ({ onNextPuzzle, onPrevPuzzle }: { onNextPuzzle: () => void, onPrevPuzzle: () => void })  => {
-  const [userAnswer, setUserAnswer] = useState('');
-  const [error, setError] = useState('Decrypt the message to proceed.');
+const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage }: { 
+  onReturnToMenu: () => void, 
+  onSetPuzzleStatus: (index: number, status: boolean) => void, 
+  onGoToWinPage: () => void 
+}) => {
 
-  const cipherMessage = "Zpv bmsfbez tbx uif botxfs!";
-  const correctAnswer = "You already saw the answer!";
+  const [answer, setAnswer] = useState('');
+  const [error, setError] = useState(''); // Add error state to show feedback to the user
 
-  const handleSubmit = () => {
-    if (userAnswer.toUpperCase() === correctAnswer.toUpperCase()) {
-      setError('Correct! You decrypted the message.');
-      setTimeout(() => {
-        onNextPuzzle(); // Proceed to next puzzle
-      }, 1000);
-    } else {
-      setError('Incorrect. Hint: shift by 1!');
+  const handleClick = () => {
+    // Handle the place order action here
+    if (answer === '30669137') {
+      onSetPuzzleStatus(5, true);
+      onGoToWinPage();
+    }
+    else {
+      setError('Incorrect. Try again!'); // Display error message
     }
   };
 
   return (
-    <div className="w-full h-screen flex justify-center items-center p-6">
-      <div className="flex flex-col items-center z-10 w-full max-w-lg">
-        <div className="flex items-center justify-between w-full mb-6">
-          <button 
-            onClick={onPrevPuzzle} 
-            className="bg-red-500 py-2 px-6 rounded-md"
+    <div className="p-6">
+      <div className="flex items-center justify-between w-full mb-6">
+        <button
+            onClick={onReturnToMenu}
+            className="border border-1 border-black py-2 px-6 rounded-md"
           >
-            Back
-          </button>
-          <img src={Logo} alt="Logo" className="w-32" />
-          <div></div>
-        </div>
-        <p className="text-lg mb-4">Cipher Puzzle:</p>
-        <p className="text-lg mb-4">
-          Encoded message: <strong>{' ' + cipherMessage}</strong>
-        </p>
-        <input 
-          type="text" 
-          value={userAnswer} 
-          onChange={(e) => setUserAnswer(e.target.value)} 
-          className="px-2 py-2 border border-gray-500 rounded-md w-full mb-4" 
-          placeholder="Your decoded message" 
-        />
-        <button onClick={handleSubmit} className="bg-blue-500 text-white py-2 px-6 rounded-md mt-4">
-          Submit Answer
+            Home
         </button>
-        <p className="text-red-500 mt-4">{error}</p>
+        <img src={Logo} alt="Amazon" className="w-32" />
+        <div></div>
       </div>
+
+      <div className="flex justify-between space-x-6">
+        {/* Shipping Address Section */}
+        <div className="flex border-2 border-gray-600 p-4 rounded-md shadow-md w-[60%]">
+          <div className='w-[70%]'>
+            <div className='flex justify-content-between align-center'>
+              <p className="font-semibold text-xl text-left">OPT: </p>
+              <input
+                type="text"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+                className="px-2 py-2 border border-gray-500 rounded-md mb-4"
+              />
+            </div>
+
+            <div className="text-gray-700 blur-xs text-left">
+              <p>Address: 1313 Hasting Avenue Lorem, ipsum dolor.</p>
+              <p>Post code: V3V 3V3  Lorem, ipsum dolor.</p>
+              <p>City: Vancouver, Canada  Lorem, ipsum dolor.</p>
+            </div>
+          </div>
+          <div className="flex flex-col items-center mx-auto">
+            <img src={Light} alt="Light" className="mt-4 w-16 h-16" />
+            <img src={Prime} alt="Prime" className="mt-4 w-16 h-16" />
+          </div>
+        </div>
+
+        {/* Order Summary Section */}
+        <div className="border-2 border-gray-600 p-4 rounded-md shadow-md">
+          <button
+            className="bg-yellow-500 text-white py-2 px-20 rounded-md mb-4 transition-all hover:bg-yellow-600"
+            onClick={handleClick}
+          >
+            Place order
+          </button>
+          <strong className="block text-xl mb-2 text-left">Order Summary</strong>
+          <div className="text-gray-700 blur-xs text-left">
+            <p>Items: $123 Lorem ipsum dolor sit amet.</p>
+            <p>Shipping & Handling: $123</p>
+            <p>Total: $246</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Error message display */}
+      {error && <p className="text-red-500 mt-4">{error}</p>}
     </div>
   );
 };
