@@ -6,7 +6,7 @@ import Prime from '../../assets/img/prime.jfif';
 const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage }: { 
   onReturnToMenu: () => void, 
   onSetPuzzleStatus: (index: number, status: boolean) => void, 
-  onGoToWinPage: () => void 
+  onGoToWinPage: () => void
 }) => {
 
   const [answer, setAnswer] = useState('');
