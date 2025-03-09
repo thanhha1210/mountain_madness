@@ -13,7 +13,8 @@ const SecondPuzzle = ({ onNextPuzzle, onPrevPuzzle }: { onNextPuzzle: () => void
     if (userAnswer.toUpperCase() === decryptedMessage) {
       setError('Correct! You’ve solved the mystery.');
       setTimeout(onNextPuzzle, 1000);
-    } else {
+    } 
+    else {
       setError('Incorrect. Hint: W = T');
     }
   };

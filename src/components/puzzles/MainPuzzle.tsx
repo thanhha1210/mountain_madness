@@ -12,13 +12,13 @@ const MainPuzzle = () => {
 
     const handleNextPuzzle = () => {
         if (index < puzzles.length - 1) {
-        setIndex(index + 1);
+            setIndex(index + 1);
         }
     };
 
     const handlePrevPuzzle = () => {
         if (index > 0) {
-        setIndex(index - 1);
+            setIndex(index - 1);
         }
     };
 
