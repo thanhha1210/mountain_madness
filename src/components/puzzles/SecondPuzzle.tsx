@@ -78,10 +78,8 @@ const SecondPuzzle: React.FC<SecondPuzzleProps> = ({ onReturnToMenu, onSetPuzzle
         </div>
       </div>
 
-      {showRandomNumber && (
-        
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-4xl z-50">
-          
+      {showRandomNumber && (   
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-4xl z-50">    
           <div className="flex items-center justify-center">
             <div 
               className="w-[80px] h-[80px] rounded-full mx-2 text-center flex justify-center items-center"
