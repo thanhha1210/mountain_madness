@@ -1,0 +1,52 @@
+import React from 'react';
+import Logo from '../../assets/img/Amazon-Logo.png';
+import Light from '../../assets/img/lb.png';
+import Prime from '../../assets/img/prime.jfif';
+
+const EndPage = () => {
+    const handleClick = () => {
+        // Handle the place order action here
+    };
+
+    return (
+        <div className="p-6">
+            <img src={Logo} alt="Amazon" className="w-32 mx-auto mb-4" />
+
+            <div className="flex justify-between space-x-6">
+                {/* Shipping Address Section */}
+                <div className="flex border-2 border-gray-600 p-4 rounded-md shadow-md w-[60%]">
+                    <div className='w-[70%]'>
+                        <p className="font-semibold text-xl mb-2 text-left">Shipping Address</p>
+                        <div className="text-gray-700 blur-xs text-left">
+                            <p>Address: 1313 Hasting Avenue Lorem, ipsum dolor.</p>
+                            <p>Post code: V3V 3V3  Lorem, ipsum dolor.</p>
+                            <p>City: Vancouver, Canada  Lorem, ipsum dolor.</p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col items-center mx-auto">
+                        <img src={Light} alt="Light" className="mt-4 w-16 h-16" />
+                        <img src={Prime} alt="Prime" className="mt-4 w-16 h-16" />
+                    </div>
+                </div>
+
+                {/* Order Summary Section */}
+                <div className="border-2 border-gray-600 p-4 rounded-md shadow-md">
+                    <button 
+                        className="bg-yellow-500 text-white py-2 px-20 rounded-md mb-4 transition-all hover:bg-yellow-600"
+                        onClick={handleClick}
+                    >
+                        Place order
+                    </button>
+                    <strong className="block text-xl mb-2 text-left">Order Summary</strong>
+                    <div className="text-gray-700 blur-xs text-left">
+                        <p>Items: $123 Lorem ipsum dolor sit amet.</p>
+                        <p>Shipping & Handling: $123</p>
+                        <p>Total: $246</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default EndPage;
