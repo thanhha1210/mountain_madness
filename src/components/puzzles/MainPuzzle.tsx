@@ -27,8 +27,8 @@ const MainPuzzle = () => {
       msg: 'Amidst the madness, a few numbers are playing hide and seek. Can you find them before they escape?'
     },
     { component: PopupPuzzle, solved: false, 
-      link: "Number Ninja: What’s the Next Hit?",
-      msg: "Unleash your inner mathematician and crack the code — what's the missing number?"
+      link: "FREE PRIZE INSIDE!!!",
+      msg: "COME GET FREE GOODIES DON'T BE SHY!!!"
     },
     { component: FourthPuzzle, solved: false,
       link: 'Go get the prize!!!', 

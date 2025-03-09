@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import popupImage from '../../assets/img/popup.png';
 import popupBlank from '../../assets/img/popupBlank.png';
 
-
-function PopupPuzzle({ count = 21 }) {
+function PopupPuzzle({ onReturnToMenu, count = 21 } : { onReturnToMenu: () => void, count?: number }) {
     const [pass, setPass] = useState(0);
     type Button ={
         id: number;
@@ -20,8 +19,8 @@ function PopupPuzzle({ count = 21 }) {
         const buttons = Array.from({ length: count }, (_, i) => ({
             id: i,
             isVisible: true,
-            y: Math.random() * window.innerHeight,
-            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight/2,
+            x: Math.random() * window.innerWidth/2,
         }));
         setButtons(buttons);
     }, [count]);
@@ -31,7 +30,17 @@ function PopupPuzzle({ count = 21 }) {
     };
 
     return (
-        <div>
+        <div className="w-full flex justify-center items-center">
+            <div className="flex flex-col items-center p-6 w-[90%] md:w-[50%] rounded-lg shadow-lg">
+                <div className="flex items-center justify-center w-full mb-6">
+                <button
+                    onClick={onReturnToMenu}
+                    className="border border-1 border-black py-2 px-6 rounded-md"
+                >
+                    Home
+                </button>
+                </div>
+            </div>
             {buttons.map((button) => (
                 <button
                     key = {button.id}
