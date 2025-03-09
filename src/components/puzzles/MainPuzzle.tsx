@@ -25,11 +25,11 @@ const MainPuzzle = () => {
     },
     { component: SecondPuzzle, solved: false,
       link: 'Error 404: Page Not Found',
-      msg: ''
+      msg: 'Amidst the madness, a few numbers are playing hide and seek. Can you find them before they escape?'
     },
     { component: ThirdPuzzle, solved: false, 
-      link: 'Stuck in a loop',
-      msg: 'Join us to get free'
+      link: "Number Ninja: What’s the Next Hit?",
+      msg: "Unleash your inner mathematician and crack the code — what's the missing number?"
     },
     { component: FourthPuzzle, solved: false,
       link: 'Click here to get help', 

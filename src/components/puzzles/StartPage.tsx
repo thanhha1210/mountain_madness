@@ -40,14 +40,21 @@ const StartPage = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () =
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center text-black relative">
       <div className="flex flex-col items-center mb-2 z-10 w-[60%]">
-        <div className='flex mb-2 items-center'>
+        <div className='flex mb-2 items-center justify-between'>
+          {/* Minimal Back Button */}
+          <button
+            onClick={onReturnToMenu}
+            className="px-4 py-1 border border-black border-1 rounded-md text-black w-[25%]"
+          >
+            Back
+          </button>
           <img src={Logo} alt="Logo" className="w-32 mr-8" />
           {/* Submit Answer Input */}
           <input
             type="number"
             value={answer}
             onChange={(e) => setAnswer(Number(e.target.value))}
-            className="px-4 py-1 border border-black rounded-md text-black w-[25%]"
+            className="px-4 py-1 border border-black text-black w-[25%]"
             placeholder="0"
           />
         </div>
@@ -73,6 +80,8 @@ const StartPage = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () =
         >
           Search
         </button>
+
+       
 
         {/* Error message */}
         {error && <p className=" text-red-500 mb-3">{error}</p>}
