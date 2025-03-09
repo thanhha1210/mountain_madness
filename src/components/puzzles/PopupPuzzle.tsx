@@ -51,7 +51,7 @@ function PopupPuzzle({ onReturnToMenu, onSetPuzzleStatus, randomNumber, count = 
                         position: "absolute", 
                         left: `${button.x}px`, 
                         top: `${button.y}px`, 
-                        zIndex: button.id === 0 ? 1 : 10,
+                        zIndex: button.id === 4 ? 1 : 10,
                     }}>
                         <img src={button.id === 0 ? popupBlank : popupImage} alt="Popup"/>
                         {button.id === 0 && (
@@ -59,10 +59,10 @@ function PopupPuzzle({ onReturnToMenu, onSetPuzzleStatus, randomNumber, count = 
                             style={{
                                 position: "absolute",
                                 color: "black",
-                                fontSize: "24px",
+                                fontSize: "148px",
                                 fontWeight: "bold",
-                                top: "10px",
-                                left: "50%",
+                                top: "60px",
+                                left: "60%",
                                 transform: "translateX(-50%)",
                             }}
                         >{randomNumber}</span>
