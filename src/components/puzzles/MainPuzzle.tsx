@@ -16,8 +16,8 @@ const MainPuzzle = () => {
       msg: '' 
     },
     { component: StartPage, solved: false, 
-      link: '',
-      msg: ''
+      link: 'Find the number',
+      msg: 'Can you catch me? I move fast, just like your mind!'
     },
     { component: BlogPuzzle, solved: false,
       link: 'You are not alone',

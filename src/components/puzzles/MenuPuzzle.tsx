@@ -4,7 +4,7 @@ const MenuPuzzle = ({ puzzles, onGoToPuzzle }: { puzzles: any[], onGoToPuzzle: (
   return (
     <div className="flex flex-col items-center w-full">
       {/* Logo and Input on the same row */}
-      <div className="flex items-center w-full">
+      <div className="flex items-center w-full my-4">
         <img src={Logo} alt="Logo" className="w-32 mr-4" />
         <input
           type="text"
