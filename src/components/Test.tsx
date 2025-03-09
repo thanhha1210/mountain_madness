@@ -1,7 +1,7 @@
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Test.css';
-import laptopImg from '/Users/shawndsouza/SFU/Hackathon/Mountain Madness 2025/mountain_madness/src/assets/img/laptop.png';
+import laptopImg from '../assets/img/laptop.png';
 import StartPage from './StartPage';
 
 function Test() {
