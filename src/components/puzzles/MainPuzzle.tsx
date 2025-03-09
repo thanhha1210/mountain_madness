@@ -4,10 +4,11 @@ import SecondPuzzle from './SecondPuzzle';
 import ThirdPuzzle from './ThirdPuzzle';
 import FourthPuzzle from './FourthPuzzle';
 import FinalPuzzle from './FinalPuzzle';
+import StartPage from './StartPage';
 
 const MainPuzzle = () => {
     const [index, setIndex] = useState(0);
-    const puzzles = [BlogPuzzle, SecondPuzzle, ThirdPuzzle, FourthPuzzle, FinalPuzzle];
+    const puzzles = [StartPage, BlogPuzzle, SecondPuzzle, ThirdPuzzle, FourthPuzzle, FinalPuzzle];
 
     const handleNextPuzzle = () => {
         if (index < puzzles.length - 1) {

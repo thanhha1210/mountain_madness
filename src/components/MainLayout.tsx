@@ -20,12 +20,14 @@ function MainLayout() {
     >
 
       <Carousel.Item>
-        <StartPage />
+        <div className='h-screen'>
+
+        </div>
       </Carousel.Item>
 
       <Carousel.Item>
         <div
-          className="bg-cover bg-center bg-no-repeat w-full h-[90vh] flex items-center justify-center"
+          className="bg-cover bg-center bg-no-repeat w-full h-[90vh] flex items-center justify-center mx-auto"
           style={{ backgroundImage: `url(${laptopImg})` }}
         >
           <div className="w-4/5 bg-transparent p-6 rounded-xl shadow-lg">

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Logo from '../../assets/img/google.png';
 import { useNavigate } from 'react-router-dom';
 
-const StartPage = () => {
+const StartPage = ({ onNextPuzzle }: { onNextPuzzle: () => void }) => {
     const [clickable, setClickable] = useState(false);
     const [moves, setMoves] = useState(0);
     const [position, setPosition] = useState({ top: "60%", left: "50%" });
@@ -37,13 +37,13 @@ const StartPage = () => {
         }
         else {
             setMessage("Case Opened");
-            navigate('/first-puzzle');
+            onNextPuzzle();
         }
        
     };
 
     return (
-        <div className="w-full h-screen flex flex-col items-center justify-center bg-white text-black relative">
+        <div className="w-full h-screen flex flex-col items-center justify-center text-black relative">
             <div className="flex flex-col items-center mb-6 z-10 w-[60%]">
                 <img src={Logo} alt="Logo" className="w-32 mb-4" />
                 <input 
