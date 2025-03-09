@@ -77,7 +77,7 @@ const WordGlitchPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage, pu
                     }}>
                         {randomNumber}
                         <button 
-                            onClick={() => onSetPuzzleStatus(1, true)} 
+                            onClick={() => onSetPuzzleStatus(2, true)} 
                             style={{ padding: '10px 20px', borderRadius: '5px', backgroundColor: '#000000', color: 'white', border: 'none', marginTop: '20px' }}
                         >
                             Next Puzzle
