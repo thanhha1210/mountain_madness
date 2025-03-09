@@ -23,7 +23,7 @@ const SecondPuzzle: React.FC<SecondPuzzleProps> = ({ onReturnToMenu, onSetPuzzle
   const handleSubmit = () => {
     if (userAnswer === correctAnswer) {
       setError('Correct! You’ve found the imposters.');
-      onSetPuzzleStatus(4, true); 
+      onSetPuzzleStatus(2, true); 
       setShowRandomNumber(true); 
     }
     else {

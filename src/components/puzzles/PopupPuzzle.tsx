@@ -16,14 +16,14 @@ function PopupPuzzle({ onReturnToMenu, onSetPuzzleStatus, randomNumber, count = 
         const buttons = Array.from({ length: count }, (_, i) => ({
             id: i,
             isVisible: true,
-            y: Math.random() * window.innerHeight/2,
-            x: Math.random() * window.innerWidth/2,
+            y: Math.random() * window.innerHeight/2+5,
+            x: Math.random() * window.innerWidth/2+5,
         }));
         setButtons(buttons);
     }, [count]);
 
     const handleClick = () => {
-        onSetPuzzleStatus(1, true);
+        onSetPuzzleStatus(4, true);
         onReturnToMenu();
     }
 

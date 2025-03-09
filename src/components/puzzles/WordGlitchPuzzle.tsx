@@ -59,11 +59,11 @@ const WordGlitchPuzzle = (props: {
             </div>
             <div className="flex justify-center items-center">
                 <p>{message}</p>
-                {(message === 'Correct!' || props.puzzles[2].solved) && (
+                {(message === 'Correct!' || props.puzzles[3].solved) && (
                     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-4xl z-50">
                         {props.randomNumber}
                         <button 
-                            onClick={() => props.onSetPuzzleStatus(1, true)} 
+                            onClick={() => props.onSetPuzzleStatus(3, true)} 
                             className="py-2 px-5 rounded bg-black text-white border-none mt-5"
                         >
                             Next Puzzle

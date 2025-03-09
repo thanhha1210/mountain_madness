@@ -23,9 +23,9 @@ const StartPage = ({
   const [showRandomNumber, setShowRandomNumber] = useState(puzzles[3]?.solved); 
 
   useEffect(() => {
-    console.log('puzzles[3]?.solved:', puzzles[3]?.solved);
+    console.log('puzzles[3]?.solved:', puzzles[1]?.solved);
     console.log('randomNumber:', randomNumber); 
-    if (puzzles[3]?.solved) {
+    if (puzzles[1]?.solved) {
       setShowRandomNumber(true);
     }
   }, [puzzles, randomNumber]); 
@@ -48,7 +48,7 @@ const StartPage = ({
   const handleSubmit = () => {
     if (answer === randomNumber) {
       setMessage('Case Opened');
-      onSetPuzzleStatus(3, true);
+      onSetPuzzleStatus(1, true);
     } 
     else {
       setError('Incorrect answer. Try again!');
