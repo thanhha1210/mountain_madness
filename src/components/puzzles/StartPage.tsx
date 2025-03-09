@@ -10,7 +10,7 @@ const StartPage = ({
   const [moves, setMoves] = useState(0);
   const [position, setPosition] = useState({ top: '60%', left: '50%' });
 
-  const startMessage = 'Why can I see them?';
+  const startMessage = 'Start investigation';
   const [index, setIndex] = useState(0);
   const [message, setMessage] = useState('');
 
