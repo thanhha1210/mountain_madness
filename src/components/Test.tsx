@@ -1,12 +1,23 @@
+import { useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Test.css';
 import laptopImg from '../assets/img/laptop.png';
 import StartPage from './StartPage';
+import lightButton from '../assets/img/lightButton.png';
+import lightButtonPushed from '../assets/img/lightButtonPress.png';
 
 import backgroundImage from '../assets/img/LightsOff.png';
 
 function Test() {
+  const [idx, setIdx] = useState(0);
+  const pictures = [lightButton, lightButtonPushed];
+
+  function resetLight() {
+    setIdx(1);
+    setTimeout(() => { setIdx(0) }, 1000);
+  }
+
   return (
     <div className="Test">
         <div style={styles.container}></div>
@@ -35,9 +46,15 @@ function Test() {
                 </div>
                 </Carousel.Item>
 
-                <Carousel.Item>
-                    <img src={laptopImg} alt="Third slide" style={{ width: '100%' }} />
-                </Carousel.Item>
+      <Carousel.Item>
+        <div>
+          <div className="lightButton">
+            <button className="light" onClick={resetLight}>
+              <img src={pictures[idx]} alt="lightButton" />
+            </button>
+          </div>
+        </div>
+      </Carousel.Item>
             
             </Carousel>
         </div>
