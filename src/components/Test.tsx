@@ -29,20 +29,20 @@ function Test() {
     
   useEffect(() => {
     const interval = setInterval(() => {
-        if (!idx) {
+        if (!idx && !gameOver) {
             setMainTimer((prevTimer) => (prevTimer > 0 ? prevTimer - 1 : 0));
         }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [idx]);
+  }, [gameOver, idx]);
 
   useEffect(() => {
         // Move the ghost down over time
         if (!gameOver && !idx) {
           const ghostInterval = setInterval(() => {
             setGhostPosition((prev) => {
-              if (prev >= 50) {
+              if (prev >= 60) {
                 setGameOver(true);
                 return prev;
               }
@@ -72,38 +72,8 @@ function resetLight() {
   return (
     <div className="Test">
         <div style={{ marginTop: '0px', width: '100vw', marginLeft: '0', padding: '0', marginBottom: '0px' }}>
-            <Carousel
-            nextIcon={<span className="carousel-control-next-icon" style={{ filter: 'invert(100%)' }} />}
-            prevIcon={<span className="carousel-control-prev-icon" style={{ filter: 'invert(100%)' }} />}
-            wrap={false}
-            indicators={false}
-            controls={true}
-            defaultActiveIndex={1}
-            >
-        {!gameOver &&  (<Carousel.Item>
-            <div style={{ ...styles.LightsContainer, backgroundImage: idx ? `url(${LightsOnLeft})` : `url(${LightsOutLeft})`, display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}></div>
-            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'white', fontSize: '64px' }}>
-                {Math.floor(mainTimer / 60)}:{('0' + (mainTimer % 60)).slice(-2)}
-            </div>
-        </Carousel.Item>)
-        }
-                    
-        <Carousel.Item>
-
-            <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
-                <div style={{ ...styles.LightsContainer, backgroundImage: idx ? `url(${LightsOnMain})` : `url(${LightsOutMain})`, display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}></div>
-                {/*Ghost Image (Animated)*/}
-                { !idx ? <motion.img
-                    src={ghost}
-                    alt="Ghost"
-                    className="absolute"
-                    initial={{ y: "0vh", scale: 0.05, opacity: 1 }}
-                    animate={{ y: `${ghostPosition -215}vh`, scale: 0.3 + (ghostPosition / 25) * 0.25, opacity: 1 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                /> : null }
-
-                {/* Game Over Screen */}
-                {gameOver && (
+            {/* Game Over Screen */}
+            {gameOver && (
                     <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-80 text-white" style={{ zIndex: 100 }}>
                     <h1 className="text-5xl font-bold mb-4">👻 Spooky Game Over! 👻</h1>
                     <p className="text-xl">You survived for {120 - mainTimer} seconds!</p>
@@ -119,7 +89,41 @@ function resetLight() {
                         Restart Game
                     </button>
                     </div>
-                )}
+            )}
+            {!gameOver && (
+            <Carousel
+            // nextIcon={<span className="carousel-control-next-icon" style={{ filter: 'invert(100%)' }} />}
+            // prevIcon={<span className="carousel-control-prev-icon" style={{ filter: 'invert(100%)' }} />}
+            wrap={false}
+            indicators={false}
+            controls={true}
+            defaultActiveIndex={1}
+            interval={null}
+            
+            >
+        <Carousel.Item>
+            <div style={{ ...styles.LightsContainer, backgroundImage: idx ? `url(${LightsOnLeft})` : `url(${LightsOutLeft})`, display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}></div>
+            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'white', fontSize: '64px' }}>
+                {Math.floor(mainTimer / 60)}:{('0' + (mainTimer % 60)).slice(-2)}
+            </div>
+        </Carousel.Item>
+        
+                    
+        <Carousel.Item>
+
+            <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
+                <div style={{ ...styles.LightsContainer, backgroundImage: idx ? `url(${LightsOnMain})` : `url(${LightsOutMain})`, display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}></div>
+                {/*Ghost Image (Animated)*/}
+                { !idx ? <motion.img
+                    src={ghost}
+                    alt="Ghost"
+                    className="absolute"
+                    initial={{ y: "0vh", scale: 0.05, opacity: 1 }}
+                    animate={{ y: `${ghostPosition -215}vh`, scale: 0.3 + (ghostPosition / 25) * 0.15, opacity: 1 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                /> : null }
+
+                
             </div>
 
             <div  
@@ -131,8 +135,7 @@ function resetLight() {
 
         </Carousel.Item>
 
-        {!gameOver && 
-        (<Carousel.Item>
+        <Carousel.Item>
             <div style={{ ...styles.LightsContainer, backgroundImage: idx ? `url(${LightsOnRight})` : `url(${LightsOutRight})`, display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}></div>
 
             <div>
@@ -143,10 +146,9 @@ function resetLight() {
                 </div>
             </div>
         </Carousel.Item>
-    )
-    }
-            
+    
         </Carousel>
+            )}
         </div>
         </div>
   );

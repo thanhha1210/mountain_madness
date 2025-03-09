@@ -57,13 +57,14 @@ const MainPuzzle = () => {
   const CurrentPuzzle = puzzles[index].component;
 
   return (
-    <div className="flex flex-col items-center justify-center w-[90%] my-20 mx-auto">
+    <div className="flex flex-col items-center justify-center w-[90%] my-20 mx-70" >
       <CurrentPuzzle
         puzzles={puzzles}
         onGoToPuzzle={handleIndex}
         onReturnToMenu={handleHome}
         onSetPuzzleStatus={setPuzzleStatus}
         onGoToWinPage={handleWin}
+        onStartScreen={handleHome}
       />
     </div>
   );

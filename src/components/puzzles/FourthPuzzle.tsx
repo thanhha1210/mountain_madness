@@ -14,7 +14,7 @@ const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage }: {
 
   const handleClick = () => {
     // Handle the place order action here
-    if (answer === '30669137') {
+    if (answer === '63069137') {
       onSetPuzzleStatus(5, true);
       onGoToWinPage();
     }
@@ -41,10 +41,11 @@ const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage }: {
         <div className="flex border-2 border-gray-600 p-4 rounded-md shadow-md w-[60%]">
           <div className='w-[70%]'>
             <div className='flex justify-content-between align-center'>
-              <p className="font-semibold text-xl text-left">OPT: </p>
+              <p className="font-semibold text-xl text-left">OTP: </p>
               <input
                 type="text"
                 value={answer}
+                placeholder='Enter the 8 Number OTP'
                 onChange={(e) => setAnswer(e.target.value)}
                 className="px-2 py-2 border border-gray-500 rounded-md mb-4"
               />
