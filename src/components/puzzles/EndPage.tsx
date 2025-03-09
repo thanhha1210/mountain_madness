@@ -3,14 +3,25 @@ import Logo from '../../assets/img/Amazon-Logo.png';
 import Light from '../../assets/img/lb.png';
 import Prime from '../../assets/img/prime.jfif';
 
-const EndPage = () => {
+const EndPage =  ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () => void, onSetPuzzleStatus: (index: number, status: boolean) => void }) => {
+
     const handleClick = () => {
         // Handle the place order action here
     };
 
     return (
         <div className="p-6">
-            <img src={Logo} alt="Amazon" className="w-32 mx-auto mb-4" />
+            <div className="flex items-center justify-between w-full mb-6">
+                <button 
+                    onClick={onReturnToMenu}  
+                    className="bg-red-500 py-2 px-6 rounded-md hover:bg-red-600"
+                >
+                    Home
+                </button>
+                <img src={Logo} alt="Amazon" className="w-32" />
+                <div></div>
+            </div>
+           
 
             <div className="flex justify-between space-x-6">
                 {/* Shipping Address Section */}
@@ -45,6 +56,8 @@ const EndPage = () => {
                     </div>
                 </div>
             </div>
+
+            
         </div>
     );
 };
