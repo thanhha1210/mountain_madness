@@ -7,6 +7,7 @@ import ThirdPuzzle from "./components/puzzles/ThirdPuzzle";
 import FourthPuzzle from "./components/puzzles/FourthPuzzle";
 import BlogPuzzle from "./components/puzzles/BlogPuzzle";
 import Test from './components/Test'
+import FinalPuzzle from './components/puzzles/FinalPuzzle';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/second-puzzle" element={<SecondPuzzle/>}></Route>
         <Route path="/third-puzzle" element={<ThirdPuzzle/>}></Route>
         <Route path="/fourth-puzzle" element={<FourthPuzzle/>}></Route>
+        <Route path="/final-puzzle" element={<FinalPuzzle/>}></Route>
         <Route path="/blog-puzzle" element={<BlogPuzzle/>}></Route>
         <Route path="/test" element={<Test/>}></Route>
       </Routes>
