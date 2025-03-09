@@ -38,6 +38,8 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
 
   const handleHome = () => setIndex(0);
   const [randomNumbers, setRandomNumbers] = useState<number[]>([]);
+  console.log(randomNumbers);
+
 
   useEffect(() => {
     setRandomNumbers(Array.from({ length: 6 }, () => Math.floor(Math.random() * 10)));
@@ -69,6 +71,7 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
         onSetPuzzleStatus={setPuzzleStatus}
         onGoToWinPage={handleWin}
         randomNumber={randomNumbers[index]}
+        randomNumbers={randomNumbers}
       />
 
     </div>

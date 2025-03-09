@@ -3,23 +3,24 @@ import Logo from '../../assets/img/Amazon-Logo.png';
 import Light from '../../assets/img/lb.png';
 import Prime from '../../assets/img/prime.jfif';
 
-const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage }: { 
+const FourthPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage, randomNumbers }: { 
   onReturnToMenu: () => void, 
   onSetPuzzleStatus: (index: number, status: boolean) => void, 
-  onGoToWinPage: () => void
+  onGoToWinPage: () => void,
+  randomNumbers: number[] 
 }) => {
 
   const [answer, setAnswer] = useState('');
-  const [error, setError] = useState(''); // Add error state to show feedback to the user
+  const [error, setError] = useState(''); 
 
   const handleClick = () => {
-    // Handle the place order action here
-    if (answer === '63069137') {
+    const correctAnswer = randomNumbers.join('').substring (1, 5); 
+    if (answer === correctAnswer) {
       onSetPuzzleStatus(5, true);
       onGoToWinPage();
-    }
+    } 
     else {
-      setError('Incorrect. Try again!'); // Display error message
+      setError('Incorrect. Try again!'); 
     }
   };
 
