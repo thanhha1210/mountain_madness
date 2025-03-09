@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import popupImage from '../../assets/img/popup.png';
 import popupBlank from '../../assets/img/popupBlank.png';
 
-function PopupPuzzle({ onReturnToMenu, count = 21 } : { onReturnToMenu: () => void, count?: number }) {
+function PopupPuzzle({ onReturnToMenu, onSetPuzzleStatus, count = 21 } : { onReturnToMenu: () => void, onSetPuzzleStatus: (index: number, status: boolean) => void, count?: number }) {
     const [pass, setPass] = useState(0);
     type Button ={
         id: number;
@@ -25,6 +25,11 @@ function PopupPuzzle({ onReturnToMenu, count = 21 } : { onReturnToMenu: () => vo
         setButtons(buttons);
     }, [count]);
 
+    const handleClick = () => {
+        onSetPuzzleStatus(4, true);
+        onReturnToMenu();
+    }
+
     const handleRemove = (id: number) => {
         setButtons((prevButtons) => prevButtons.filter((button) => button.id !== id));
     };
@@ -34,7 +39,7 @@ function PopupPuzzle({ onReturnToMenu, count = 21 } : { onReturnToMenu: () => vo
             <div className="flex flex-col items-center p-6 w-[90%] md:w-[50%] rounded-lg shadow-lg">
                 <div className="flex items-center justify-center w-full mb-6">
                 <button
-                    onClick={onReturnToMenu}
+                    onClick={handleClick}
                     className="border border-1 border-black py-2 px-6 rounded-md"
                 >
                     Home
