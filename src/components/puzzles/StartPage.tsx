@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Logo from '../../assets/img/google.png';
 import { useNavigate } from 'react-router-dom';
 
-const StartPage = ({ onNextPuzzle }: { onNextPuzzle: () => void }) => {
+const StartPage = ({ onNextPuzzle, onPrevPuzzle }: { onNextPuzzle: () => void, onPrevPuzzle: () => void }) => {
     const [clickable, setClickable] = useState(false);
     const [moves, setMoves] = useState(0);
     const [position, setPosition] = useState({ top: "60%", left: "50%" });
