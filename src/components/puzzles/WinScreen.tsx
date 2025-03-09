@@ -1,7 +1,9 @@
-const WinScreen = ({onStartScreen} : {onStartScreen: () => void}) => {
+import { useNavigate } from "react-router-dom";
 
+const WinScreen = ({onStartScreen} : {onStartScreen: () => void}) => {
+    const navigate = useNavigate();
     const handleClick = () => {
-        onStartScreen();
+        navigate('/home');
     };
 
     return (
