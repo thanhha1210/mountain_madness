@@ -5,7 +5,7 @@ import laptopImg from '../assets/img/laptop.png';
 import StartPage from './puzzles/StartPage';
 import MainPuzzle from './puzzles/MainPuzzle';
 
-function Test() {
+function MainLayout() {
   return (
     <div>
     <Carousel
@@ -24,16 +24,19 @@ function Test() {
       </Carousel.Item>
 
       <Carousel.Item>
-        <div className="bg-[${}laptopImg]">
-          <MainPuzzle></MainPuzzle>
+        <div
+          className="bg-cover bg-center bg-no-repeat w-full h-[90vh] flex items-center justify-center"
+          style={{ backgroundImage: `url(${laptopImg})` }}
+        >
+          <div className="w-4/5 bg-transparent p-6 rounded-xl shadow-lg">
+            <MainPuzzle />
+          </div>
         </div>
-        <p>Second</p>
       </Carousel.Item>
 
+
       <Carousel.Item>
-        
         <img src={laptopImg} alt="Third slide" />
-        <p>Third</p>
       </Carousel.Item>
       
     </Carousel>
@@ -41,4 +44,4 @@ function Test() {
   );
 }
 
-export default Test;
+export default MainLayout;

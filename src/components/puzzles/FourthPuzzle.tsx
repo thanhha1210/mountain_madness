@@ -1,57 +1,40 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Logo from '../../assets/img/google.png';
 
-const FourthPuzzle = () => {
+const FourthPuzzle = ({ onNextPuzzle }: { onNextPuzzle: () => void }) => {
   const [userAnswer, setUserAnswer] = useState('');
-  const [message, setMessage] = useState('Decrypt the message to proceed.');
   const [error, setError] = useState('Decrypt the message to proceed.');
-  const navigate = useNavigate();
 
   const cipherMessage = "Zpv bmsfbez tbx uif botxfs!";
   const correctAnswer = "You already saw the answer!";
 
   const handleSubmit = () => {
-   
     if (userAnswer.toUpperCase() === correctAnswer.toUpperCase()) {
       setError('Correct! You decrypted the message.');
       setTimeout(() => {
-        navigate('/final-puzzle'); 
+        onNextPuzzle(); // Proceed to next puzzle
       }, 1000);
-    } 
-    else {
+    } else {
       setError('Incorrect. Hint: shift by 1!');
     }
   };
 
   return (
-    <div className="w-[70%] h-screen flex flex-col items-center relative p-6 mx-auto">
-      <div className="flex flex-col items-center mb-2 z-10 w-full">
-        <img src={Logo} alt="Logo" className="w-32 mb-2" />
-        <input
-          type="text"
-          className="px-2 py-2 border border-gray-500 rounded-md w-full mb-4"
-          value={message}
-          disabled={true}
-        />
+    <div className="w-full h-screen flex justify-center items-center p-6">
+      <div className="flex flex-col items-center z-10 w-full max-w-lg">
+        <img src={Logo} alt="Logo" className="w-32 mb-4" />
         <p className="text-lg mb-4">Cipher Puzzle:</p>
         <p className="text-lg mb-4">
-          Encoded message:  
-          <strong>
-            {' ' + cipherMessage}
-          </strong>
+          Encoded message: <strong>{' ' + cipherMessage}</strong>
         </p>
-        <input
-          type="text"
-          value={userAnswer}
-          onChange={(e) => setUserAnswer(e.target.value)}
-          className="px-2 py-2 border border-gray-500 rounded-md w-full mb-4"
-          placeholder="Your decoded message"
+        <input 
+          type="text" 
+          value={userAnswer} 
+          onChange={(e) => setUserAnswer(e.target.value)} 
+          className="px-2 py-2 border border-gray-500 rounded-md w-full mb-4" 
+          placeholder="Your decoded message" 
         />
-        <button
-          onClick={handleSubmit}
-          className="bg-blue-500 text-white py-2 px-6 rounded-md mt-4"
-        >
+        <button onClick={handleSubmit} className="bg-blue-500 text-white py-2 px-6 rounded-md mt-4">
           Submit Answer
         </button>
         <p className="text-red-500 mt-4">{error}</p>

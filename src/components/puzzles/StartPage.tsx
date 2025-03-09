@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Logo from '../assets/img/google.png';
+import Logo from '../../assets/img/google.png';
 import { useNavigate } from 'react-router-dom';
 
 const StartPage = () => {

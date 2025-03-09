@@ -18,7 +18,7 @@ const LastPuzzle = () => {
   };
 
   return (
-    <div className="w-[70%] h-screen flex flex-col items-center relative p-6 mx-auto">
+    <div className="w-full flex flex-col items-center relative p-6 mx-auto">
       <div className="flex flex-col items-center mb-2 z-10 w-full">
         <h1 className="text-xl mb-4">Final Puzzle</h1>
         <p className="text-sm mb-4">What is the ultimate word to escape the room?</p>
