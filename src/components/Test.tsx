@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Test.css';
@@ -6,31 +7,15 @@ import StartPage from './StartPage';
 import lightButton from '../assets/img/lightButton.png';
 import lightButtonPushed from '../assets/img/lightButtonPress.png';
 
-export function resetLight() {
-  changeButton();
-  var time = new Date().getTime();
-  //do nothing
-  while(new Date().getTime() < time + 10000){
-      changeButton();
-  }
-}
-
-export function changeButton() {
-  if (idx === 0) {
-    idx = 1;
-  }
-  else {
-    idx = 0;
-  }
-}
-
-var idx = 0;
-const pictures = [
-  lightButton,
-  lightButtonPushed
-]
-
 function Test() {
+  const [idx, setIdx] = useState(0);
+  const pictures = [lightButton, lightButtonPushed];
+
+  function resetLight() {
+    setIdx(1);
+    setTimeout(() => { setIdx(0) }, 1000);
+  }
+
   return (
     <div>
     <Carousel
@@ -55,8 +40,9 @@ function Test() {
       <Carousel.Item>
         <div>
           <div className="lightButton">
-            <button className="light" onClick={() => resetLight()}></button>
-            <img src={pictures[idx]} alt="lightButton" />
+            <button className="light" onClick={resetLight}>
+              <img src={pictures[idx]} alt="lightButton" />
+            </button>
           </div>
         </div>
       </Carousel.Item>

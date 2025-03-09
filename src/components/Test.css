@@ -56,11 +56,11 @@ border-radius:50%;
 position: center;
 }
 
-.lightButton, .light {
+.lightButton {
     position: center;
     width: 40%;
     height: 40%;
     justify-content: center;
     margin: 0 auto;
-
+    padding: top 2rem;
 }
