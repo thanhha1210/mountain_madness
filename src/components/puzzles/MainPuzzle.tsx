@@ -25,9 +25,9 @@ const MainPuzzle = () => {
     const CurrentPuzzle = puzzles[index];
 
     return (
-        <div className="flex flex-col items-center justify-center w-[90%] my-20  mx-auto">
+        // <div className="flex flex-col items-center justify-center w-[90%] my-20  mx-auto">
             <CurrentPuzzle onNextPuzzle={handleNextPuzzle} onPrevPuzzle={handlePrevPuzzle} />
-        </div>
+        // </div>
     );
 };
 
