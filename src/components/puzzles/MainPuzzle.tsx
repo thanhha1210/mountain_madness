@@ -26,10 +26,10 @@ const MainPuzzle = ( {setGameWin}: { setGameWin: (status: boolean) => void } ) =
     //   link: 'Error 404: Page Not Found',
     //   msg: 'Amidst the madness, a few numbers are playing hide and seek. Can you find them before they escape?'
     // },
-    // { component: ThirdPuzzle, solved: false, 
-    //   link: "Number Ninja: What’s the Next Hit?",
-    //   msg: "Unleash your inner mathematician and crack the code — what's the missing number?"
-    // },
+    { component: PopupPuzzle, solved: false, 
+      link: "CLICK HERE FOR A PRIZE!!!",
+      msg: "DON'T BE SHY, COLLECT YOUR PRIZE!!!"
+    },
     { component: WordGlitchPuzzle, solved: false,
       link: 'Word Glitch',
       msg: 'Solve the puzzle by finding the pattern in the words before it glitches out!'

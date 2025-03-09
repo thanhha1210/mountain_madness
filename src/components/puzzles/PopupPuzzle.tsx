@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import popupImage from '../../assets/img/popup.png';
 import popupBlank from '../../assets/img/popupBlank.png';
 
-function PopupPuzzle({ onReturnToMenu, onSetPuzzleStatus, count = 21 } : { onReturnToMenu: () => void, onSetPuzzleStatus: (index: number, status: boolean) => void, count?: number }) {
-    const [pass, setPass] = useState(0);
+function PopupPuzzle({ onReturnToMenu, onSetPuzzleStatus, randomNumber, count = 21 } : { onReturnToMenu: () => void, onSetPuzzleStatus: (index: number, status: boolean) => void, randomNumber?: number, count?: number }) {
     type Button ={
         id: number;
         isVisible: boolean;
@@ -14,8 +13,6 @@ function PopupPuzzle({ onReturnToMenu, onSetPuzzleStatus, count = 21 } : { onRet
     const [buttons, setButtons] = useState<Button[]>([]);
 
     useEffect(() => {
-        const passCode = Math.floor(Math.random()*10);
-        setPass(passCode);
         const buttons = Array.from({ length: count }, (_, i) => ({
             id: i,
             isVisible: true,
@@ -26,7 +23,7 @@ function PopupPuzzle({ onReturnToMenu, onSetPuzzleStatus, count = 21 } : { onRet
     }, [count]);
 
     const handleClick = () => {
-        onSetPuzzleStatus(4, true);
+        onSetPuzzleStatus(1, true);
         onReturnToMenu();
     }
 
@@ -68,7 +65,7 @@ function PopupPuzzle({ onReturnToMenu, onSetPuzzleStatus, count = 21 } : { onRet
                                 left: "50%",
                                 transform: "translateX(-50%)",
                             }}
-                        >{pass}</span>
+                        >{randomNumber}</span>
                         )}
                         </button>
             ))}
