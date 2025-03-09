@@ -4,7 +4,7 @@ import './Test.css';
 import laptopImg from '../assets/img/laptop.png';
 import StartPage from './StartPage';
 
-import backgroundImage from '../assets/img/ghosts.png';
+import backgroundImage from '../assets/img/LightsOff.png';
 
 function Test() {
   return (
