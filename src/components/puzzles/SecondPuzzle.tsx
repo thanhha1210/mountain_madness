@@ -3,14 +3,14 @@ import Logo from '../../assets/img/google.png';
 
 const SecondPuzzle = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: () => void, onSetPuzzleStatus: (index: number, status: boolean) => void }) => {
   const [userAnswer, setUserAnswer] = useState('');
-  const [message, setMessage] = useState('Can you find the imposter? Hint: string length 3');
+  const [message, setMessage] = useState('Can you find the imposter? Hint: string length 2');
   const [error, setError] = useState('');
 
   // Complicated string with imposters
   const stringWithImposters = `qwertyasabc0000zxa0sdjllm00a9bcdxSAsASas
-                               asdljk0asd0asdsa2dmnq0aasdszv0a0bcxasd0z
+                               asdljk0asd0asdsaadmnq0aasdszv0a0bcxasd0z
                                1xasds0qwertyasd0z0asdsad000aaaADASDSAD`; 
-  const correctAnswer = '921'; 
+  const correctAnswer = '91'; 
   const handleSubmit = () => {
     if (userAnswer === correctAnswer) {
       setError('Correct! You’ve found the imposters.');
@@ -44,7 +44,7 @@ const SecondPuzzle = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: (
             value={message}
             disabled
           />
-          <p className="text-blue-900 mb-4 font-semibold whitespace-pre-wrap">{stringWithImposters}</p>
+          <p className="text-blue-900 mb-4 font-semibold whitespace-pre-wrap text-white">{stringWithImposters}</p>
 
           {/* Input for user's answer */}
           <input
@@ -52,7 +52,7 @@ const SecondPuzzle = ({ onReturnToMenu, onSetPuzzleStatus }: { onReturnToMenu: (
             value={userAnswer}
             onChange={(e) => setUserAnswer(e.target.value)}
             className="px-4 py-2 border rounded-md w-full mb-4"
-            placeholder="Enter the imposter numbers (e.g. 123)"
+            placeholder="Enter the imposter numbers (e.g. 12)"
           />
           
           {/* Submit button */}
