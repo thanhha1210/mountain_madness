@@ -59,7 +59,7 @@ const WordGlitchPuzzle = ({ onReturnToMenu, onSetPuzzleStatus, onGoToWinPage, pu
             </div>
             <div className="flex justify-center items-center">
                 <p>{message}</p>
-                {(message === 'Correct!' || puzzles[1].solved) && (
+                {(message === 'Correct!' || puzzles[2].solved) && (
                     <div style={{
                         position: 'fixed',
                         top: 0,
