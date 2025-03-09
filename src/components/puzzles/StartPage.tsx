@@ -20,7 +20,7 @@ const StartPage = ({
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [answer, setAnswer] = useState(0);
-  const [showRandomNumber, setShowRandomNumber] = useState(puzzles[3]?.solved); 
+  const [showRandomNumber, setShowRandomNumber] = useState(puzzles[1]?.solved); 
 
   useEffect(() => {
     console.log('puzzles[1]?.solved:', puzzles[1]?.solved);

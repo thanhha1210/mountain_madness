@@ -12,7 +12,7 @@ const MenuPuzzle = ({ puzzles, onGoToPuzzle }: { puzzles: any[], onGoToPuzzle: (
         <input
           type="text"
           className="px-4 py-2 border border-black rounded-md text-black w-full"
-          value="Start Investigation"
+          value="Why can I see shadows move?"
           disabled={true}
         />
       </div>
