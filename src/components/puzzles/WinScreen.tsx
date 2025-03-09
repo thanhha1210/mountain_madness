@@ -20,3 +20,5 @@ const WinScreen = ({onStartScreen} : {onStartScreen: () => void}) => {
         </div>
     )
 }
+
+export default WinScreen;

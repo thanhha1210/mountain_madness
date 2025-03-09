@@ -3,10 +3,9 @@ import BlogPuzzle from './BlogPuzzle';
 import SecondPuzzle from './SecondPuzzle';
 import ThirdPuzzle from './ThirdPuzzle';
 import FourthPuzzle from './FourthPuzzle';
-import FinalPuzzle from './FinalPuzzle';
 import StartPage from './StartPage';
-import EndPage from './EndPage';
 import MenuPuzzle from './MenuPuzzle';
+import WinScreen from './WinScreen';
 
 const MainPuzzle = () => {
   const [index, setIndex] = useState(0);
@@ -32,14 +31,10 @@ const MainPuzzle = () => {
       msg: "Unleash your inner mathematician and crack the code — what's the missing number?"
     },
     { component: FourthPuzzle, solved: false,
-      link: 'Click here to get help', 
-      msg: ''
+      link: 'Go get the prize!!!', 
+      msg: 'The numbers are partying together. Can you find the secret code to crash the party? Let’s crack this mystery!'
      },
-    { component: FinalPuzzle, solved: false,
-      link: '', 
-      msg: ''
-    },
-    { component: EndPage, solved: false }
+    { component: WinScreen, solved: false }
   ]);
 
   const handleHome = () => setIndex(0);
@@ -57,6 +52,8 @@ const MainPuzzle = () => {
     setIndex(0);
   };
 
+  const handleWin = () => setIndex(6); 
+
   const CurrentPuzzle = puzzles[index].component;
 
   return (
@@ -66,6 +63,7 @@ const MainPuzzle = () => {
         onGoToPuzzle={handleIndex}
         onReturnToMenu={handleHome}
         onSetPuzzleStatus={setPuzzleStatus}
+        onGoToWinPage={handleWin}
       />
     </div>
   );
