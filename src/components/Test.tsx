@@ -21,7 +21,7 @@ import { motion } from "framer-motion";
 
 function Test() {
   const [idx, setIdx] = useState(0);
-  const [mainTimer, setMainTimer] = useState(100); // Initialize timer with 300 seconds
+  const [mainTimer, setMainTimer] = useState(120); // Initialize timer with 120 seconds
   const [lightTimer, setLightTimer] = useState(0);
   const pictures = [lightButtonUnpressed, lightButtonPressed];
     const [ghostPosition, setGhostPosition] = useState(0);
@@ -80,12 +80,13 @@ function resetLight() {
             controls={true}
             defaultActiveIndex={1}
             >
-        <Carousel.Item>
+        {!gameOver &&  (<Carousel.Item>
             <div style={{ ...styles.LightsContainer, backgroundImage: idx ? `url(${LightsOnLeft})` : `url(${LightsOutLeft})`, display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}></div>
             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'white', fontSize: '64px' }}>
                 {Math.floor(mainTimer / 60)}:{('0' + (mainTimer % 60)).slice(-2)}
             </div>
-        </Carousel.Item>
+        </Carousel.Item>)
+        }
                     
         <Carousel.Item>
 
@@ -111,7 +112,7 @@ function resetLight() {
                         onClick={() => {
                             setIdx(0);
                             setGameOver(false);
-                            setMainTimer(100);
+                            setMainTimer(120);
                             setGhostPosition(0);
                         }}
                     >
@@ -129,7 +130,9 @@ function resetLight() {
             </div>
 
         </Carousel.Item>
-        <Carousel.Item>
+
+        {!gameOver && 
+        (<Carousel.Item>
             <div style={{ ...styles.LightsContainer, backgroundImage: idx ? `url(${LightsOnRight})` : `url(${LightsOutRight})`, display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}></div>
 
             <div>
@@ -140,6 +143,8 @@ function resetLight() {
                 </div>
             </div>
         </Carousel.Item>
+    )
+    }
             
         </Carousel>
         </div>
