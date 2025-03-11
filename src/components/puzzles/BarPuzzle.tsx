@@ -47,12 +47,12 @@ const BarPuzzle = () => {
                 className="progress-bar-vertical"
                 style={{
                   height: `${level}%`, // Fill from bottom to top
-                  backgroundColor: level < 20 ? "red" : "dodgerblue",
+                  backgroundColor: level < 20 ? "red" : "limegreen",
                 }}
               ></div>
             </div>
             <Button onClick={() => handleRefill(i)} className="fill-button">
-              Fill
+              Boost
             </Button>
           </div>
         ))}
