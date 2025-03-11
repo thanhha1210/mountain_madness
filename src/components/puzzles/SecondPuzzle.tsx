@@ -10,7 +10,7 @@ interface SecondPuzzleProps {
 
 const SecondPuzzle: React.FC<SecondPuzzleProps> = ({ onReturnToMenu, onSetPuzzleStatus, randomNumber, puzzles }) => {
   const [userAnswer, setUserAnswer] = useState('');
-  const [message, setMessage] = useState('Can you find the imposter? Hint: string length 2');
+  const [message, setMessage] = useState('Can you find the imposters? Hint: string length 2');
   const [error, setError] = useState('');
   const [showRandomNumber, setShowRandomNumber] = useState(puzzles[3]?.solved); 
 

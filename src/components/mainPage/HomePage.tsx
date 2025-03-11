@@ -76,7 +76,7 @@ const Home = () => {
         </button>
         <h1 className="text-4xl font-extrabold mb-4">📜 How to Survive</h1> 
         <div className="p-6 bg-blue-100 text-left">
-          <p>🧩 <strong>Find Hidden OPT:</strong> Solve puzzles to uncover secret codes.</p>
+          <p>🧩 <strong>Find Hidden OTP:</strong> Solve puzzles to uncover secret codes.</p>
           <p>💡 <strong>Use Hints:</strong> Each puzzle provides a clue—combine them wisely!</p>
           <p>🚪 <strong>Block the Zombies:</strong> Click the glowing bulb to close the door and delay zombies for 10 minutes.</p>
           <p>🏃 <strong>Escape Before It's Too Late:</strong> Solve all puzzles before the zombies reach you!</p>

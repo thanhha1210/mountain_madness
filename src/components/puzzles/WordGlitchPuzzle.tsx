@@ -34,7 +34,7 @@ const WordGlitchPuzzle = (props: {
     return (
         <div className="p-6 absolute top-[90px] w-full">
             <h1>Word Glitch Puzzle</h1>
-            <p>Solve the puzzle by finding the hidden words!</p>
+            <p>Green means GO! They're learning; how long are the strings?</p>
             <div className="flex flex-wrap justify-center items-center h-[40vh]">
                 {timer % selectedWords.length === 0 && timer !== 0 && (
                     <div className="w-[30px] h-[30px] bg-green-500 rounded-full mx-2"></div>
@@ -45,6 +45,7 @@ const WordGlitchPuzzle = (props: {
                 <input 
                     type="text"
                     className="border-2 border-black p-2 rounded-md"
+                    placeholder='Ex. 201934'
                     onKeyPress={(e) => {
                         if (e.key === 'Enter') {
                             const value = (e.target as HTMLInputElement).value;
